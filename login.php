@@ -24,7 +24,7 @@ if (isset($_POST['formConnect'])) {
         $reqpass->execute([$pseudoconnect]);
         $pass = $reqpass->fetch(PDO::FETCH_OBJ);
         
-        if (password_verify($passwordconnect, $pass->Password)) {  
+        if ($pass && password_verify($passwordconnect, $pass->Password)) {  
             $_SESSION['id'] = $pass->idUser;
             $_SESSION['pseudo'] = $pass->Pseudo;
             $_SESSION['email'] = $pass->Email;
