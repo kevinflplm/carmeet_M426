@@ -15,8 +15,12 @@ require_once "classes/fonctions.php";
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/admin.css">
    <link rel="stylesheet" href="css/style.css">
+   <style>
+      body {
+         color: white;
+      }
+   </style>
 </head>
 
 <body>

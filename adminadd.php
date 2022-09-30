@@ -17,8 +17,12 @@ $erreur = 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+      body {
+         color: white;
+      }
+   </style>
 </head>
 
 <body>
