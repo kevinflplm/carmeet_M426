@@ -410,18 +410,43 @@ body {
 /*FIN*/
 
 /*DEBUT PAGE PROFIL CSS*/
-/* main {
+.profil-main {
   display: flex; 
   justify-content: center;
   align-items: center;
-} */
+} 
 
-.profil-details, .profil-img {
-  background: #ffffff;
-  height: 1000px;
-  margin-top: 5px;
-  width: 500px;
+.profil-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
+.profil-img, .profil-info, .profil-list {
+  background: #ffffff;
+  border-radius: 15px;
+}
+
+.profil-img {
+  height: 353px;
+  width: 342px;
+  margin-top: 15vh;
+}
+
+.profil-info {
+  height: 282px;
+  width: 714px;
+  margin-left: 20px;
+  margin-top: 15vh;
+}
+
+.profil-list {
+  height: 170px;
+  width: 714px;
+  margin-left: 20px;
+  margin-top: 3vh;
+}
+
 /*FIN*/
 
 /*DEBUT ADMIN CSS*/

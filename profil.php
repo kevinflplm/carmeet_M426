@@ -9,33 +9,40 @@ require_once "classes/fonctions.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page profil</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page profil</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<?php
+  <?php
 
-include("plug/header.php");
+  include("plug/header.php");
 
-?>
+  ?>
 
-<main>
-<div class="profil-main">
-    <div class="profil-img">
+  <main class="profil-main">
+    <div class="profil-content">
+      <div class="profil-img">
 
+      </div>
+      <div class="profil-details">
+        <div class="profil-info">
+
+        </div>
+        <div class="profil-list">
+
+        </div>
+      </div>
     </div>
-    <div class="profil-details">
-        
-    </div>
-</div>
 
-</main>
+  </main>
 
-<!-- <div class="student-profile py-4">
+  <!-- <div class="student-profile py-4">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -100,4 +107,5 @@ include("plug/header.php");
   </div>
 </div> -->
 </body>
+
 </html>
