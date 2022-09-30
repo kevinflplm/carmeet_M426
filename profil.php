@@ -34,8 +34,47 @@ require_once "classes/fonctions.php";
         <div class="profil-info">
 
         </div>
-        <div class="profil-list">
+        <div class="profil-list" id="scroll">
+          <h2>Mes inscription</h2>
+          <ul>
+            <li class="meet-item">
+              <img src="img/profil/avatar.jpg" style="width:85px">
+              <div>
+                <span>Racing Meet</span><br>
+                <span>22.09.2022</span>
+              </div>
+            </li>
 
+            <li class="meet-item">
+              <img src="img/profil/avatar.jpg" style="width:85px">
+              <div>
+                <span>Racing Meet</span><br>
+                <span>22.09.2022</span>
+              </div>
+            </li>
+
+            <li class="meet-item">
+              <img src="img/profil/avatar.jpg" style="width:85px">
+              <div>
+                <span>Racing Meet</span><br>
+                <span>22.09.2022</span>
+              </div>
+            </li>
+            <li class="meet-item">
+              <img src="img/profil/avatar.jpg" style="width:85px">
+              <div>
+                <span>Racing Meet</span><br>
+                <span>22.09.2022</span>
+              </div>
+            </li>
+            <li class="meet-item">
+              <img src="img/profil/avatar.jpg" style="width:85px">
+              <div>
+                <span>Racing Meet</span><br>
+                <span>22.09.2022</span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
