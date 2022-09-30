@@ -410,8 +410,17 @@ body {
 /*FIN*/
 
 /*DEBUT PAGE PROFIL CSS*/
+/* main {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+} */
+
 .profil-details, .profil-img {
   background: #ffffff;
+  height: 1000px;
+  margin-top: 5px;
+  width: 500px;
 }
 /*FIN*/
 
@@ -419,6 +428,12 @@ body {
 
 .admin-main {
   margin-left: 17%;
+}
+
+.add-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .new-film {

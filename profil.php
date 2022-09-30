@@ -29,7 +29,7 @@ include("plug/header.php");
 
     </div>
     <div class="profil-details">
-    
+        
     </div>
 </div>
 
