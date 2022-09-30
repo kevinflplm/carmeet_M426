@@ -20,6 +20,7 @@ $buttonModifier = filter_input(INPUT_POST, "btnModify", FILTER_DEFAULT);
 
 if ($buttonModifier == "Modifier") {
     modifierMeetById($idMeet, $titre, $participantsMax, $idCategorie, $adresse, $date);
+    $message = modifierMeetById($idMeet, $titre, $participantsMax, $idCategorie, $adresse, $date);
     if ($message == "") {
         header("Location: adminpage.php");
     }
@@ -97,8 +98,8 @@ if ($buttonModifier == "Modifier") {
                     </div>
                 </div>
                 <?php
-                if ($erreur == 1) {
-                    echo "Veuillez remplir tous les champs !";
+                if ($message != "") {
+                    echo $message;
                 }
                 ?>
             </form>
