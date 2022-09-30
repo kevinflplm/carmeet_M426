@@ -4,6 +4,26 @@ session_start();
 // Appel de la connexion à la bdd
 require_once "classes/fonctions.php";
 
+$idMeet = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+
+
+$meet = getTableById($idMeet);
+
+
+$titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_STRING);
+$participantsMax = filter_input(INPUT_POST, "participantsMax", FILTER_SANITIZE_STRING);
+$idCategorie = filter_input(INPUT_POST, "categorie", FILTER_SANITIZE_STRING);
+$adresse = filter_input(INPUT_POST, "adresse", FILTER_SANITIZE_STRING);
+$date = filter_input(INPUT_POST, "date", FILTER_SANITIZE_STRING);
+
+$buttonModifier = filter_input(INPUT_POST, "btnModify", FILTER_DEFAULT);
+
+if ($buttonModifier == "Modifier") {
+    modifierMeetById($idMeet, $titre, $participantsMax, $idCategorie, $adresse, $date);
+    if ($message == "") {
+        header("Location: adminpage.php");
+    }
+}
 
 ?>
 
@@ -11,88 +31,82 @@ require_once "classes/fonctions.php";
 <html lang="fr">
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-   <style>
-      body {
-         color: white;
-      }
-   </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-   <?php
+    <?php
 
-   include("plug/header.php");
+    include("plug/header.php");
 
-   ?>
-   <main class="add-main">
-      <div class="add-form">
-         <form method="post" enctype="multipart/form-data">
-            <h2>Modifier</h2>
-            <div class="form-addItem">
-               <label>
-                  Nom du film :
-                  <input type="text" name="nomFilm" class="add-item" value="<?= $film->Titre ?>">
-               </label>
-            </div><br>
-            <div class="form-addItem">
-               <label>
-                  Descritpion :
-                  <input type="text" name="description" class="add-item" value="<?= $film->Description ?>">
-               </label>
-            </div><br>
-            <div class="form-addItem">
-               <label>
-                  Catégorie :
-                  <!-- <select name="genre">
-                     <option value="1" <?= ($film->idGenre === 1) ? "selected" : "" ?>>Action</option>
-                     <option value="2" <?= ($film->idGenre === 2) ? "selected" : "" ?>>Horreur</option>
-                     <option value="3" <?= ($film->idGenre === 3) ? "selected" : "" ?>>Animation</option>
-                     <option value="4" <?= ($film->idGenre === 4) ? "selected" : "" ?>>Comédie</option>
-                     <option value="5" <?= ($film->idGenre === 5) ? "selected" : "" ?>>Drame</option>
-                     <option value="6" <?= ($film->idGenre === 6) ? "selected" : "" ?>>Aventure</option>
-                  </select> -->
-               </label>
-            </div>
-            <div class="form-addItem">
-               <label>
-                  Durée (en min) :
-                  <input type="number" name="duree" class="add-item" value="<?= $film->duree ?>">
-               </label>
-            </div><br>
-            <div class="form-addItem">
-               <label>
-                  Date de sortie :
-                  <input type="date" name="dateSortie" class="add-item" value="<?= $film->DateSortie ?>">
-               </label>
-            </div><br>
-            <div class="form-addItem">
-               <label>
-                  Cover :
-                  <input type="file" name="cover">
-               </label>
-            </div><br>
-            <div class="form-addItem">
-               <br>
-               <div class="form-addItem">
-                  <input type="submit" name="btnModify" class="btn-add" value="Modifier">
-               </div>
-            </div>
-            <?php
-            if ($erreur == 1) {
-               echo "Veuillez remplir tous les champs !";
-            }
-            ?>
-         </form>
-      </div>
-   </main>
-   <?php
-   include("plug/footer.html");
-   ?>
+    ?>
+    <main class="add-main">
+        <div class="add-form">
+            <form method="post" enctype="multipart/form-data">
+                <h2>Modifier</h2>
+                <div class="form-addItem">
+                    <label>
+                        Titre :
+                        <input type="text" name="titre" class="add-item" value="<?= $meet->titre ?>">
+                    </label>
+                </div><br>
+                <div class="form-addItem">
+                    <label>
+                        Nombre de participants maximum :
+                        <input type="number" name="participantsMax" class="add-item" value="<?= $meet->partcipantsMax ?>">
+                    </label>
+                </div><br>
+                <div class="form-addItem">
+                    <label>
+                        Catégorie :
+                        <select name="categorie" id="categorie">
+                            <option value="1" <?= ($meet->idCategorie === 1) ? "selected" : "" ?>>Sportive</option>
+                            <option value="2" <?= ($meet->idCategorie === 2) ? "selected" : "" ?>>Supersportive</option>
+                            <option value="3" <?= ($meet->idCategorie === 3) ? "selected" : "" ?>>Muscles Car</option>
+                            <option value="4" <?= ($meet->idCategorie === 4) ? "selected" : "" ?>>JDM</option>
+                            <option value="5" <?= ($meet->idCategorie === 5) ? "selected" : "" ?>>SUV</option>
+                            <option value="6" <?= ($meet->idCategorie === 6) ? "selected" : "" ?>>Classique 90s</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-addItem">
+                    <label>
+                        Adresse :
+                        <input type="texte" name="adresse" class="add-item" value="<?= $meet->adresse ?>">
+                    </label>
+                </div><br>
+                <div class="form-addItem">
+                    <label>
+                        Date :
+                        <input type="date" name="date" class="add-item" value="<?= $meet->date ?>" placeholder="Utilisez le format yyyy-mm-dd">
+                    </label>
+                </div><br>
+                <div class="form-addItem">
+                    <br>
+                    <div class="form-addItem">
+                        <input type="submit" name="btnModify" class="btn-add" value="Modifier">
+                    </div>
+                </div>
+                <?php
+                if ($erreur == 1) {
+                    echo "Veuillez remplir tous les champs !";
+                }
+                ?>
+            </form>
+        </div>
+    </main>
+    <?php
+    include("plug/footer.html");
+    ?>
 </body>
 
 </html>
