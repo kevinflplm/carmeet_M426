@@ -26,3 +26,11 @@ function meetSelectAllAdmin() {
     // Retourne le tableau avec les données
     return $recordMeet;
 }
+
+function removeMeet($idMeet) {
+    $query = db()->prepare("DELETE FROM meet WHERE idEvenement = ?;");
+
+    $query->execute([$idMeet]);
+
+    return $query;
+}

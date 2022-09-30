@@ -1,10 +1,10 @@
 <?php 
 session_start();
 
-require_once "classes/database.php";
+require_once "classes/fonctions.php";
 
-$idFilm = filter_input(INPUT_GET, 'film', FILTER_SANITIZE_URL);
+$idMeet = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_URL);
 
-removeFilm($idFilm);
+removeMeet($idMeet);
 
-header("Location: admin_page.php");
+header("Location: adminpage.php");

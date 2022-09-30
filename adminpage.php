@@ -45,7 +45,7 @@ $allMeets = meetSelectAllAdmin();
                             <td><?= $meet->partcipantsMax ?></td>
                             <td><?= $meet->adresse ?></td>
                             <td><?= $meet->date ?></td>
-                            <td><a href="delete.php?film=<?= $meet->idEvenement ?>" class="info-meet"><i class="fa-solid fa-circle-info"></i></a><a href="admin_update.php?id=<?= $meet->idEvenement ?>" class="mod-meet"><i class="fa-solid fa-pen"></i></a><a href="delete.php?film=<?= $meet->idEvenement ?>" class="delete-film"><i class="fa-solid fa-trash"></i></a></td>
+                            <td><a href="" class="info-meet"><i class="fa-solid fa-circle-info"></i></a><a href="admin_update.php?id=<?= $meet->idEvenement ?>" class="mod-meet"><i class="fa-solid fa-pen"></i></a><a href="delete.php?id=<?= $meet->idEvenement ?>" class="delete-film"><i class="fa-solid fa-trash"></i></a></td>
                         </tr>
                     <?php } ?>
                 </table>
