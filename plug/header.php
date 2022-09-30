@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="profil.php">
                         <i class="fa-solid fa-user"></i>
                         <span class="links_name">Profil</span>
                     </a>

@@ -12,6 +12,8 @@ if (isset($_POST['formInscritpion'])) {
     $email = htmlspecialchars($_POST['email']);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
+    $defaultPdp = "img/profil/avatar.jpg";
+
     
 
     if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
@@ -33,8 +35,8 @@ if (isset($_POST['formInscritpion'])) {
 
                         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-                        $insertUser = db()->prepare("INSERT INTO users(pseudo, email, password) VALUES (?, ?, ?)");
-                        $insertUser->execute(array($pseudo, $email, $passwordHash));
+                        $insertUser = db()->prepare("INSERT INTO users(pseudo, email, password, photoProfil) VALUES (?, ?, ?, ?)");
+                        $insertUser->execute(array($pseudo, $email, $passwordHash, $defaultPdp));
 
                         //
                         $success = "Votre compte a bien été créer";

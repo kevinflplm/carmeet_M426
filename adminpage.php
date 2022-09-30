@@ -29,7 +29,7 @@ $allMeets = meetSelectAllAdmin();
         <div class="container">
             <div class="product-display">
                 <button class="new-film"><a href="admin_add.php">Ajouter un meet</a></button>
-                <table>
+                <table class="admin-panel">
                     <tr class="admin-info">
                         <th>id</th>
                         <th>Titre</th>
