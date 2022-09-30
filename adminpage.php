@@ -33,6 +33,7 @@ $allMeets = meetSelectAllAdmin();
                     <tr class="admin-info">
                         <th>id</th>
                         <th>Titre</th>
+                        <th>Catégorie</th>
                         <th>Personne Max</th>
                         <th>Adresse</th>
                         <th>Date</th>
@@ -42,6 +43,7 @@ $allMeets = meetSelectAllAdmin();
                         <tr>
                             <td><?= $meet->idEvenement ?></td>
                             <td><?= $meet->titre ?></td>
+                            <td><?= $meet->label ?></td>
                             <td><?= $meet->partcipantsMax ?></td>
                             <td><?= $meet->adresse ?></td>
                             <td><?= $meet->date ?></td>

@@ -16,7 +16,7 @@ function db()
 
 function meetSelectAllAdmin() {
     // Préparation de la requete
-    $query = db()->prepare("SELECT * FROM meet");
+    $query = db()->prepare("SELECT * FROM meet INNER JOIN categorie ON meet.idCategorie = categorie.idCategorie");
     // Execution de la requete
     $query->execute();
 
@@ -34,3 +34,4 @@ function removeMeet($idMeet) {
 
     return $query;
 }
+
