@@ -15,7 +15,6 @@ require_once "classes/fonctions.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page profil</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 </head>
 <body>
 <?php
@@ -23,7 +22,20 @@ require_once "classes/fonctions.php";
 include("plug/header.php");
 
 ?>
-<div class="student-profile py-4">
+
+<main>
+<div class="profil-main">
+    <div class="profil-img">
+
+    </div>
+    <div class="profil-details">
+    
+    </div>
+</div>
+
+</main>
+
+<!-- <div class="student-profile py-4">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -86,6 +98,6 @@ include("plug/header.php");
       </div>
     </div>
   </div>
-</div>
+</div> -->
 </body>
 </html>
