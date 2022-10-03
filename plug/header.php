@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="listmeet.php">
                     <i class="fa-solid fa-car-rear"></i>
                         <span class="links_name">Tous les meeting</span>
                     </a>
@@ -45,12 +45,6 @@
                         <span class="links_name">Profil</span>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="#">
-                        <i class="fa-solid fa-star"></i>
-                        <span class="links_name">Favori</span>
-                    </a>
-                </li> -->
                 <?php
                 if ($_SESSION['pseudo'] == "admin") {
                 ?>

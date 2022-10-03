@@ -86,9 +86,6 @@ if (isset($_POST['formInscritpion'])) {
         </div>
         <div class="login-form">
             <form method="post">
-                <?php
-
-                ?>
                 <h2>Inscription</h2>
                 <div class="form-group">
                     <label for="pseudo">

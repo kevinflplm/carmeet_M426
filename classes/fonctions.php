@@ -14,6 +14,27 @@ function db()
     return $db;
 }
 
+function meetSelectAllIndex($idCategorie)
+{
+
+    if ($idCategorie == 7) {
+        // Préparation de la requete
+        $query = db()->prepare("SELECT * FROM meet INNER JOIN categorie ON meet.idCategorie = categorie.idCategorie");
+        // Execution de la requete
+        $query->execute();
+    } else {
+        $query = db()->prepare("SELECT * FROM meet INNER JOIN categorie ON meet.idCategorie = categorie.idCategorie WHERE meet.idCategorie = ? ");
+        // Execution de la requete
+        $query->execute([$idCategorie]);
+    }
+
+    // Récuperation des données s'il y en a 
+    $recordMeet = $query->fetchAll(PDO::FETCH_OBJ);
+
+    // Retourne le tableau avec les données
+    return $recordMeet;
+}
+
 function meetSelectAllAdmin()
 {
     // Préparation de la requete
