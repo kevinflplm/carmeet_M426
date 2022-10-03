@@ -5,7 +5,22 @@ session_start();
 // Appel de la connexion à la bdd
 require_once "classes/fonctions.php";
 
-$erreur = 0;
+$message = "";
+
+$nomMeet = filter_input(INPUT_POST, 'nomMeet', FILTER_SANITIZE_STRING);
+$categorie = filter_input(INPUT_POST, 'categorie', FILTER_VALIDATE_INT);
+$nbPartMax = filter_input(INPUT_POST, 'nbParticipants', FILTER_VALIDATE_INT);
+$adresse = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_STRING);
+$date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
+$btnAdd = filter_input(INPUT_POST, 'btnAdd', FILTER_SANITIZE_STRING);
+
+if (isset($btnAdd)) {
+    addMeet($nomMeet, $nbPartMax, $categorie, $adresse, $date);
+    $message = addMeet($nomMeet, $nbPartMax, $categorie, $adresse, $date);
+    if ($message == "") {
+        header("Location: adminpage.php");
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -34,48 +49,42 @@ $erreur = 0;
     <main class="add-main">
         <div class="add-form">
             <form method="post" enctype="multipart/form-data">
-                <h2>Ajouter un film</h2>
+                <h2>Ajouter un meet</h2>
                 <div class="form-addItem">
                     <label>
-                        Nom du film :
-                        <input type="text" name="nomFilm" class="add-item">
+                        Nom du meet :
+                        <input type="text" name="nomMeet" class="add-item">
                     </label>
                 </div><br>
                 <div class="form-addItem">
                     <label>
-                        Descritpion :
-                        <input type="text" name="description" class="add-item">
-                    </label>
-                </div><br>
-                <div class="form-addItem">
-                    <label>
-                        Genre :
-                        <select name="genre">
-                            <option value="1">Action</option>
-                            <option value="2">Horreur</option>
-                            <option value="3">Animation</option>
-                            <option value="4">Comédie</option>
-                            <option value="5">Drame</option>
-                            <option value="6">Aventure</option>
+                        Catégorie :
+                        <select name="categorie">
+                            <option value="1">Sportives</option>
+                            <option value="2">Supersportives</option>
+                            <option value="3">Muscles Car</option>
+                            <option value="4">JDM</option>
+                            <option value="5">SUV</option>
+                            <option value="6">Classique 90s</option>
                         </select>
                     </label>
                 </div>
                 <div class="form-addItem">
                     <label>
-                        Durée (en min) :
-                        <input type="number" name="duree" class="add-item   ">
+                        Participants Max :
+                        <input type="number" name="nbParticipants" class="add-item">
                     </label>
                 </div><br>
                 <div class="form-addItem">
                     <label>
-                        Date de sortie :
-                        <input type="date" name="dateSortie" class="add-item">
+                        Adresse :
+                        <input type="text" name="adresse" class="add-item">
                     </label>
                 </div><br>
                 <div class="form-addItem">
                     <label>
-                        Cover :
-                        <input type="file" name="cover">
+                        Date :
+                        <input type="date" name="date" class="add-item">
                     </label>
                 </div><br>
                 <div class="form-addItem">
@@ -85,8 +94,8 @@ $erreur = 0;
                     </div>
                 </div>
                 <?php
-                if ($erreur == 1) {
-                    echo "Veuillez remplir tous les champs !";
+                if ($message != "") {
+                    echo $message;
                 }
                 ?>
             </form>

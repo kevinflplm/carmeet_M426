@@ -28,7 +28,7 @@ $allMeets = meetSelectAllAdmin();
     <main class="admin-main">
         <div class="container">
             <div class="product-display">
-                <button class="new-film"><a href="adminadd.php">Ajouter un meet</a></button>
+                <button class="new-meet"><a href="adminadd.php">Ajouter un meet</a></button>
                 <table class="admin-panel">
                     <tr class="admin-info">
                         <th>id</th>
@@ -47,14 +47,16 @@ $allMeets = meetSelectAllAdmin();
                             <td><?= $meet->partcipantsMax ?></td>
                             <td><?= $meet->adresse ?></td>
                             <td><?= $meet->date ?></td>
-                            <td><a href="" class="info-meet"><i class="fa-solid fa-circle-info"></i></a><a href="admin_update.php?id=<?= $meet->idEvenement ?>" class="mod-meet"><i class="fa-solid fa-pen"></i></a><a href="delete.php?id=<?= $meet->idEvenement ?>" class="delete-film"><i class="fa-solid fa-trash"></i></a></td>
+                            <td><a href="" class="info-meet"><i class="fa-solid fa-circle-info"></i></a><a href="admin_update.php?id=<?= $meet->idEvenement ?>" class="mod-meet"><i class="fa-solid fa-pen"></i></a><a href="delete.php?id=<?= $meet->idEvenement ?>" class="delete-meet"><i class="fa-solid fa-trash"></i></a></td>
                         </tr>
                     <?php } ?>
                 </table>
             </div>
         </div>
     </main>
-
+    <?php
+    include("plug/footer.html");
+    ?>
 </body>
 
 </html>

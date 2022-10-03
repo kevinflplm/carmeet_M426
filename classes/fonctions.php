@@ -49,6 +49,23 @@ function meetSelectAllAdmin()
     return $recordMeet;
 }
 
+// Function qui ajoute un film
+function addMeet($titre, $nbPartMax, $categorie, $adresse, $date)
+{
+    $message = "";
+    if (!empty($titre) && !empty($adresse) && !empty($categorie) && is_numeric($categorie) && !empty($nbPartMax) && is_numeric($nbPartMax)) {
+        $query = db()->prepare("INSERT INTO meet(titre, partcipantsMax, idCategorie, adresse, date) VALUES (?, ?, ?, ?, ?)");
+
+        // Execution de la requete
+        $query->execute([$titre, $nbPartMax, $categorie, $adresse, $date]);
+
+        return $message;
+    } else {
+        $message = "Veuillez verifier tous les champs";
+        return $message;
+    }
+}
+
 function removeMeet($idMeet)
 {
     $query = db()->prepare("DELETE FROM meet WHERE idEvenement = ?;");

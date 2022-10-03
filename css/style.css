@@ -373,23 +373,6 @@ body {
       /* flex-direction: column; */
   }
 
-  .film-main { 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .film-card {
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-      width: 150px;
-      margin-left: 0px;
-  }
-
-  .film-card img {
-      width: 100%;
-  }
-
 }
 
 .createAccount {
@@ -490,24 +473,33 @@ body {
 /*DEBUT ADMIN CSS*/
 
 .admin-main {
+  background-image: url(../img/back/walladd.jpg);
+  height: 86vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.admin-main .container {
   margin-left: 17%;
 }
 
 .add-main {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
-.new-film {
-  background-color: #0bb413;
+.new-meet {
+  background-color: #07690c;
   border: none;
   padding: 10px;
   margin-top: 30px;
-  border-radius: 10px;
+  width: 200px;
+  font-weight: bolder;
+  font-size: 1.7vh;
 }
 
-.delete-film {
+.delete-meet {
   color: #ff0000;
   font-size: 2.8vh;
   text-decoration: none;
@@ -525,22 +517,28 @@ body {
   font-size: 2.8vh;
 }
 
-.new-film a {
-  background-color: #0bb413;
+.new-meet a {
+  background-color: #07690c;
   color: white;
   text-decoration: none;
 }
 
-table {
-  width: 70vw;
-  margin-top: 3%;
-  
-}
 
 .admin-panel{
   border: 1px solid #ffff00;
   background-color: #000000;
+  margin-top: 10%;
+  width: 70vw;
+  overflow-y: scroll;
 } 
+
+.admin-panel tr td {
+  border-top: 1px solid #fbff00;
+}
+
+.admin-panel tr:hover {
+  background-color: grey;
+}
 
 .admin-panel th {
   background-color: #fbff00;
@@ -552,23 +550,61 @@ table {
 .admin-panel td {
   padding: 5px;
   text-align:center;
-  color: #fbff00;
+  color: #ffffff;
 }
 
 /*ADD*/
 
-/* .add-item {
- border: 1px solid #05386b;
+.add-main {
+  display: flex;
+  justify-content: center;
+  height: 86vh;
+  background-image: url(../img/back/walladd.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.add-form {
+  color: black;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.829);
+  width: 40%;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.add-form form h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.add-form form .form-addItem label input,  .add-form form .form-addItem label select, .add-form form .form-addItem label textarea{
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.add-form form input[type=submit] {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-left: 30%;
+  margin-bottom: 30px;
+}
+
+.add-item {
+  border: 1px solid #05386b;
 }
 
 .btn-add {
- background-color: #05386b;
- cursor: pointer;
- width: 150px;
- height: 30px;
- color: white;
-} */
-
+  background-color: #05386b;
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  color: white;
+}
 
 /*FIN ADMIN CSS*/
 
