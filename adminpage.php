@@ -29,28 +29,30 @@ $allMeets = meetSelectAllAdmin();
         <div class="container">
             <div class="product-display">
                 <button class="new-meet"><a href="adminadd.php">Ajouter un meet</a></button>
-                <table class="admin-panel">
-                    <tr class="admin-info">
-                        <th>id</th>
-                        <th>Titre</th>
-                        <th>Catégorie</th>
-                        <th>Personne Max</th>
-                        <th>Adresse</th>
-                        <th>Date</th>
-                        <th>Actions</th>
-                    </tr>
-                    <?php foreach ($allMeets as $meet) { ?>
-                        <tr>
-                            <td><?= $meet->idEvenement ?></td>
-                            <td><?= $meet->titre ?></td>
-                            <td><?= $meet->label ?></td>
-                            <td><?= $meet->partcipantsMax ?></td>
-                            <td><?= $meet->adresse ?></td>
-                            <td><?= $meet->date ?></td>
-                            <td><a href="" class="info-meet"><i class="fa-solid fa-circle-info"></i></a><a href="admin_update.php?id=<?= $meet->idEvenement ?>" class="mod-meet"><i class="fa-solid fa-pen"></i></a><a href="delete.php?id=<?= $meet->idEvenement ?>" class="delete-meet"><i class="fa-solid fa-trash"></i></a></td>
+                <div class="table-admin">
+                    <table class="admin-panel">
+                        <tr class="admin-info">
+                            <th>id</th>
+                            <th>Titre</th>
+                            <th>Catégorie</th>
+                            <th>Personne Max</th>
+                            <th>Adresse</th>
+                            <th>Date</th>
+                            <th>Actions</th>
                         </tr>
-                    <?php } ?>
-                </table>
+                        <?php foreach ($allMeets as $meet) { ?>
+                            <tr>
+                                <td><?= $meet->idEvenement ?></td>
+                                <td><?= $meet->titre ?></td>
+                                <td><?= $meet->label ?></td>
+                                <td><?= $meet->partcipantsMax ?></td>
+                                <td><?= $meet->adresse ?></td>
+                                <td><?= $meet->date ?></td>
+                                <td><a href="" class="info-meet"><i class="fa-solid fa-circle-info"></i></a><a href="admin_update.php?id=<?= $meet->idEvenement ?>" class="mod-meet"><i class="fa-solid fa-pen"></i></a><a href="delete.php?id=<?= $meet->idEvenement ?>" class="delete-meet"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                </div>
             </div>
         </div>
     </main>

@@ -523,14 +523,22 @@ body {
   text-decoration: none;
 }
 
+.table-admin {
+  height: 50vh;
+  overflow-y: scroll;
+  margin-top: 10%;
+}
 
 .admin-panel{
   border: 1px solid #ffff00;
   background-color: #000000;
-  margin-top: 10%;
   width: 70vw;
   overflow-y: scroll;
 } 
+
+.admin-panel tbody  {
+  overflow-y: scroll;
+}
 
 .admin-panel tr td {
   border-top: 1px solid #fbff00;

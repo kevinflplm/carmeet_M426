@@ -33,7 +33,7 @@ $allMeets = meetSelectAllIndex($filter);
     <div class="list-meet">
         <?php foreach ($allMeets as $meet) { ?>
             <div class="card">
-                <img src="img/cover/<?= $meet->idCategorie ?>.jpg" alt="" style="width:100%">
+                <img src="img/cover/<?= $meet->idCategorie ?>.jpg" alt="" style="width:100%; height: 200px;">
                 <div class="container">
                     <h4><b><?= $meet->titre ?></b></h4>
                     <div class="container-info">
