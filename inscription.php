@@ -14,7 +14,7 @@ if (isset($_POST['formInscritpion'])) {
 
     $defaultPdp = "img/profil/avatar.jpg";
 
-    
+
 
     if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
@@ -77,13 +77,12 @@ if (isset($_POST['formInscritpion'])) {
 <body>
     <main class="main-login">
         <div class="login-info">
-            <p><i class="fa-solid fa-newspaper"></i><span>Suivez</span> l'actualité du cinéma dans la francophonie.</p>
-            <p><i class="fa-solid fa-star"></i><span>Créer</span> votre liste avec vos films préfrérés.</p>
+            <p><i class="fa-solid fa-newspaper"></i><span>Rejoignez</span> la plus grande communauté automobile suisse</p>
+            <p><i class="fa-solid fa-star"></i><span>Accédez</span> à la plus large séléction de catégories automobiles.</p>
             <p><i class="fa-solid fa-crosshairs"></i><span>Soyez</span> le premier à être informé des nouveautés.</p>
-
         </div>
         <div class="button-go">
-        <button class="createAccount"><a href="login.php">J'ai déjà un compte</a></button>
+            <button class="createAccount"><a href="login.php">J'ai déjà un compte</a></button>
         </div>
         <div class="login-form">
             <form method="post">

@@ -5,9 +5,8 @@ session_start();
 require_once "classes/fonctions.php";
 
 $idMeet = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-
-
 $meet = getTableById($idMeet);
+$message = "";
 
 
 $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_STRING);

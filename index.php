@@ -31,21 +31,6 @@ if (!empty($_SESSION["id"])) {
             <h2>Bienvenue <?= $_SESSION['pseudo'] ?> sur Car-Meet Switzerland</h2>
             <img src="img/swiss.png" width="70px" height="70px">
         </div>
-        <div class="list-meet">
-            <div class="card">
-                <img src="img/cover/1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b>Racing Meet</b></h4>
-                    <div class="container-info">
-                    <p>Sportive</p>
-                    <p>22.09.2022</p>
-                    <p>0/20</p>
-                    <p>Ch. du coin 20</p>
-                    </div>
-                    <button>Voir plus</button>
-                </div>
-            </div>
-        </div>
         <?php
         include("plug/footer.html");
         ?>

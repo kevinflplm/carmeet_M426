@@ -28,14 +28,19 @@ require_once "classes/fonctions.php";
   <main class="profil-main">
     <div class="profil-content">
       <div class="profil-img">
-
+        <div class="avatar">
+          <img src="img/profil/avatar.jpg">
+        </div>
+        <div class="profil-name">
+          <h2>Admin</h2>
+        </div>
       </div>
       <div class="profil-details">
         <div class="profil-info">
 
         </div>
         <div class="profil-list" id="scroll">
-          <h2>Mes inscription</h2>
+          <h2><i class="fa-solid fa-calendar-days"></i> Mes inscription</h2>
           <ul>
             <li class="meet-item">
               <img src="img/profil/avatar.jpg" style="width:85px">

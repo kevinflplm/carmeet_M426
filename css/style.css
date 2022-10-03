@@ -428,9 +428,32 @@ body {
 }
 
 .profil-img {
-  height: 353px;
+  height: 282px;
   width: 342px;
   margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profil-img .avatar img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+}
+
+.profil-name {
+  border-top: 1px solid rgb(180, 180, 180);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.profil-name h2 {
+  margin-top: 20px;
 }
 
 .profil-info {
