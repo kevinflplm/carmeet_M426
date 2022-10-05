@@ -6,9 +6,16 @@ session_start();
 // Appel de la connexion à la bdd
 require_once "classes/fonctions.php";
 
-$filter =  7;
+$filter = filter_input(INPUT_POST, 'filter', FILTER_VALIDATE_INT);
 
+if ($filter == null) {
+    $filter =  7;
+}
+
+$allCategorie = getCategorie();
 $allMeets = meetSelectAllIndex($filter);
+
+
 
 ?>
 <!DOCTYPE html>
@@ -20,33 +27,45 @@ $allMeets = meetSelectAllIndex($filter);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des meetings</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/test.css">
 </head>
 
 <body>
     <?php
     include("plug/header.php");
     ?>
-    <div class="list-head">
-
-    </div>
-    <div class="list-meet">
-        <?php foreach ($allMeets as $meet) { ?>
-            <div class="card">
-                <img src="img/cover/<?= $meet->idCategorie ?>.jpg" alt="" style="width:100%; height: 200px;">
-                <div class="container">
-                    <h4><b><?= $meet->titre ?></b></h4>
-                    <div class="container-info">
-                        <p><?= $meet->label ?></p>
-                        <p><?= $meet->date ?></p>
-                        <p>0/<?= $meet->partcipantsMax ?></p>
-                        <p><?= $meet->adresse ?></p>
+    <main class="main-list">
+        <div class="list-head">
+            <h2>Liste de tous les meetings</h2>
+        </div>
+        <div class="list-filter">
+            <form method="POST">
+                Filtrer :
+                <select name="filter">
+                    <?php foreach ($allCategorie as $categorie) { ?>
+                        <option value="<?= $categorie->idCategorie ?>" <?= ($categorie->label === "Tous") ? "cheked" : "" ?>><?= $categorie->label ?></option>
+                    <?php } ?>
+                </select>
+                <input type="submit" value="Filtrer">
+            </form>
+        </div>
+        <div class="list-meet">
+            <?php foreach ($allMeets as $meet) { ?>
+                <div class="card">
+                    <img src="img/cover/<?= $meet->idCategorie ?>.jpg" alt="" style="width:100%; height: 200px;">
+                    <div class="container-list">
+                        <h4><b><?= $meet->titre ?></b></h4>
+                        <div class="container-info">
+                            <p><?= $meet->label ?></p>
+                            <p><?= $meet->date ?></p>
+                            <p>0/<?= $meet->partcipantsMax ?></p>
+                            <p><?= $meet->adresse ?></p>
+                        </div>
+                        <button>Voir plus</button>
                     </div>
-                    <button>Voir plus</button>
                 </div>
-            </div>
-        <?php } ?>
-    </div>
+            <?php } ?>
+        </div>
+    </main>
     <?php
     include("plug/footer.html");
     ?>

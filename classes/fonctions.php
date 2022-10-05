@@ -107,3 +107,16 @@ function modifierMeetById($id, $titre, $nbParticipantsMax, $idCategorie, $adress
         return $message;
     }
 }
+
+// Fonction qui récupère les catégorie
+function getCategorie() {
+
+    $queryGenre = db()->prepare("SELECT * FROM categorie");
+
+    $queryGenre->execute();
+
+    // Récuperation des données s'il y en a 
+    $record = $queryGenre->fetchAll(PDO::FETCH_OBJ);
+
+    return $record;
+}
