@@ -13,7 +13,7 @@ if ($filter == null) {
 }
 
 $allCategorie = getCategorie();
-$allMeets = meetSelectAllIndex($filter);
+$allMeets = meetSelectByCategorie($filter);
 
 
 
@@ -60,7 +60,7 @@ $allMeets = meetSelectAllIndex($filter);
                             <p>0/<?= $meet->partcipantsMax ?></p>
                             <p><?= $meet->adresse ?></p>
                         </div>
-                        <button>Voir plus</button>
+                        <button><a href="meetdetails.php?meet=<?= $meet->idEvenement ?>">Voir plus</a></button>
                     </div>
                 </div>
             <?php } ?>

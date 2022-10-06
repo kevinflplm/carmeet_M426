@@ -34,10 +34,10 @@ if (isset($btnAdd)) {
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-      body {
-         color: white;
-      }
-   </style>
+        body {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,7 +49,7 @@ if (isset($btnAdd)) {
     <main class="add-main">
         <div class="add-form">
             <form method="post" enctype="multipart/form-data">
-                <h2>Ajouter un meet</h2>
+                <h1>Ajouter un meet</h1>
                 <div class="form-addItem">
                     <label>
                         Nom du meet :
@@ -88,10 +88,7 @@ if (isset($btnAdd)) {
                     </label>
                 </div><br>
                 <div class="form-addItem">
-                    <br>
-                    <div class="form-addItem">
-                        <input type="submit" name="btnAdd" class="btn-add" value="Ajouter">
-                    </div>
+                    <input type="submit" name="btnAdd" class="btn-add" value="Ajouter">
                 </div>
                 <?php
                 if ($message != "") {

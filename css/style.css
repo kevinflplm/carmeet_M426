@@ -446,6 +446,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .container-info {
@@ -461,9 +462,16 @@ body {
   background-color: #ffff00;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 5px;
-  color: #000000;
+  font-size: 1.5vh;
+  font-weight: bold;
   height: 40px;
   width: 100%;
+  text-decoration: none;
+}
+
+.container-list button a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .container-list button:hover {
@@ -472,6 +480,18 @@ body {
 }
 
 /*FIN*/
+
+
+
+
+/* DEBUT CSS PAGE DETAIL*/
+
+.meet-main {
+  color: #ffffff;
+  margin-left: 100px;
+}
+
+/*FIN PAGE DETAIL CSS*/
 
 /*DEBUT PAGE PROFIL CSS*/
 .profil-main {
@@ -571,7 +591,7 @@ body {
 }
 
 .new-meet {
-  background-color: #07690c;
+  background-color: #18b320;
   border: none;
   padding: 10px;
   margin-top: 30px;
@@ -579,7 +599,6 @@ body {
   font-weight: bolder;
   font-size: 1.7vh;
   text-decoration: none;
-  background-color: #07690c;
   color: white;
 }
 
@@ -589,7 +608,7 @@ body {
 
 .new-meet:hover {
   background-color: white;
-  color: #07690c;
+  color: #18b320;
 }
 
 .delete-meet {

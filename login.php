@@ -63,7 +63,7 @@ if (isset($_POST['formConnect'])) {
             <p><i class="fa-solid fa-crosshairs"></i><span>Soyez</span> le premier à être informé des nouveautés.</p>
         </div>
         <div class="button-go">
-        <button class="createAccount"><a href="inscription.php">Céer un compte ?</a></button>
+        <button class="createAccount"><a href="inscription.php">Créer un compte ?</a></button>
         </div>
         <div class="login-form">
             <form method="post">

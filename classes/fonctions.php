@@ -15,10 +15,10 @@ function db()
 }
 
 /**
- * @param 
- * @return 
+ * @param Categorie
+ * @return Enregistrement selon la catégorie
  */
-function meetSelectAllIndex($idCategorie)
+function meetSelectByCategorie($idCategorie)
 {
 
     if ($idCategorie == 7) {
@@ -39,6 +39,10 @@ function meetSelectAllIndex($idCategorie)
     return $recordMeet;
 }
 
+/**
+ * @param
+ * @return Tous les meetings enregistré dans la base de données
+ */
 function meetSelectAllAdmin()
 {
     // Préparation de la requete
@@ -53,7 +57,11 @@ function meetSelectAllAdmin()
     return $recordMeet;
 }
 
-// Function qui ajoute un film
+/**
+ * Function qui ajoute un film
+ * @param Titre, Nombres de Participants maximum, Categorie, Adresse, Date
+ * @return Un messages null, Un message d'erreur
+ */
 function addMeet($titre, $nbPartMax, $categorie, $adresse, $date)
 {
     $message = "";
@@ -123,4 +131,19 @@ function getCategorie() {
     $record = $queryGenre->fetchAll(PDO::FETCH_OBJ);
 
     return $record;
+}
+
+function meetSelectById($idMeet) {
+
+    // Préparation de la requete
+    $query = db()->prepare("SELECT * FROM meet INNER JOIN categorie ON meet.idCategorie = categorie.idCategorie WHERE idEvenement = ?");
+    // Execution de la requete
+    $query->execute([$idMeet]);
+
+    // Récuperation des données s'il y en a 
+    $recordMeet = $query->fetchAll(PDO::FETCH_OBJ);
+
+    // Retourne le tableau avec les données
+    return $recordMeet;
+
 }
