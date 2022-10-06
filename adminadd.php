@@ -59,7 +59,7 @@ if (isset($btnAdd)) {
                 <div class="form-addItem">
                     <label>
                         Catégorie :
-                        <select name="categorie">
+                        <select name="categorie" class="add-item">
                             <option value="1">Sportives</option>
                             <option value="2">Supersportives</option>
                             <option value="3">Muscles Car</option>
@@ -68,7 +68,7 @@ if (isset($btnAdd)) {
                             <option value="6">Classique 90s</option>
                         </select>
                     </label>
-                </div>
+                </div><br>
                 <div class="form-addItem">
                     <label>
                         Participants Max :

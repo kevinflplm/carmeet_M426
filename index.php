@@ -8,6 +8,7 @@ require_once "classes/fonctions.php";
 
 if (!empty($_SESSION["id"])) {
 
+
 ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -59,10 +60,6 @@ if (!empty($_SESSION["id"])) {
                 <label for="s4" id="slide4">Meet 4</label>
                 <label for="s5" id="slide5">Meet 5</label>
             </section>
-
-            <a href="" target="self">
-                <div class="youtube-link">Voir plus</div>
-            </a>
         </main>
         <?php
         include("plug/footer.html");

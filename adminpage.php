@@ -28,7 +28,8 @@ $allMeets = meetSelectAllAdmin();
     <main class="admin-main">
         <div class="container">
             <div class="product-display">
-                <button class="new-meet"><a href="adminadd.php">Ajouter un meet</a></button>
+                <br>
+                <a href="adminadd.php" class="new-meet"><i class="fa-regular fa-calendar-plus"></i> Ajouter un meet</a>
                 <div class="table-admin">
                     <table class="admin-panel">
                         <tr class="admin-info">

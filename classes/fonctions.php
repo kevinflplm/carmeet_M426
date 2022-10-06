@@ -14,6 +14,10 @@ function db()
     return $db;
 }
 
+/**
+ * @param 
+ * @return 
+ */
 function meetSelectAllIndex($idCategorie)
 {
 

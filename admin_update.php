@@ -52,7 +52,7 @@ if ($buttonModifier == "Modifier") {
     <main class="add-main">
         <div class="add-form">
             <form method="post" enctype="multipart/form-data">
-                <h2>Modifier</h2>
+                <h1>Modifier</h1>
                 <div class="form-addItem">
                     <label>
                         Titre :
@@ -68,7 +68,7 @@ if ($buttonModifier == "Modifier") {
                 <div class="form-addItem">
                     <label>
                         Catégorie :
-                        <select name="categorie" id="categorie">
+                        <select name="categorie" id="categorie" class="add-item">
                             <option value="1" <?= ($meet->idCategorie === 1) ? "selected" : "" ?>>Sportive</option>
                             <option value="2" <?= ($meet->idCategorie === 2) ? "selected" : "" ?>>Supersportive</option>
                             <option value="3" <?= ($meet->idCategorie === 3) ? "selected" : "" ?>>Muscles Car</option>
@@ -77,7 +77,7 @@ if ($buttonModifier == "Modifier") {
                             <option value="6" <?= ($meet->idCategorie === 6) ? "selected" : "" ?>>Classique 90s</option>
                         </select>
                     </label>
-                </div>
+                </div><br>
                 <div class="form-addItem">
                     <label>
                         Adresse :
@@ -91,10 +91,7 @@ if ($buttonModifier == "Modifier") {
                     </label>
                 </div><br>
                 <div class="form-addItem">
-                    <br>
-                    <div class="form-addItem">
-                        <input type="submit" name="btnModify" class="btn-add" value="Modifier">
-                    </div>
+                    <input type="submit" name="btnModify" class="btn-add" value="Modifier">
                 </div>
                 <?php
                 if ($message != "") {
