@@ -577,7 +577,17 @@ body {
 
 .meet-item div {
   margin-left: 15px;
-  margin-top: 20px;
+  margin-top: 22px;
+}
+
+.profil-list .not-meet {
+  display: flex;
+  justify-content: center;
+  margin-top: 22%;
+}
+
+.profil-list .not-meet h2 {
+  color: rgba(180, 180, 180, 0.603);
 }
 
 .button {

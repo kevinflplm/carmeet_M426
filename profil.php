@@ -42,24 +42,30 @@ $nbInscription = count($Inscriptions);
       <div class="profil-details">
         <div class="profil-list" id="scroll">
           <h2><i class="fa-solid fa-calendar-days"></i> Mes inscription</h2>
-          <?php
-          foreach ($Inscriptions as $value) {
-          ?>
+          <?php if ($nbInscription > 0) { ?>
             <ul>
-              <li class="meet-item">
-                <img src="img/cover/<?= $value->idCategorie ?>.jpg" style="width:130px">
-                <div>
-                  <span><?= $value->titre ?></span><br>
-                  <span><?= $value->date ?></span>
-                </div>
-              </li>
+              <?php
+              foreach ($Inscriptions as $value) {
+              ?>
+                <li class="meet-item">
+                  <img src="img/cover/<?= $value->idCategorie ?>.jpg" style="width:130px; height: 80px;">
+                  <div>
+                    <span><?= $value->titre ?></span><br>
+                    <span><?= $value->date ?></span>
+                  </div>
+                </li>
+              <?php }  ?>
             </ul>
-          <?php }  ?>
+          <?php } else { ?>
+            <div class="not-meet">
+                <h2>Vous n'êtes inscrits à aucun événement</h2>
+            </div>
+          <?php } ?>
         </div>
         <div class="profil-info">
           <form>
-
-
+            <input type="text" value="Admin" readonly>
+            <input type="email" value="admin@gmail.com" readonly>
           </form>
           <!-- <a href="#" class="button"><i class="fa-regular fa-pen-to-square"></i> Modifier mon profil</a> -->
         </div>

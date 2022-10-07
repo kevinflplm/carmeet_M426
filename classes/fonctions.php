@@ -199,6 +199,7 @@ function verifInscription() {
     }
     var_dump($value2);
     
+}
 
 function getInscriprtion($idUser) {
 
