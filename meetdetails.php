@@ -34,6 +34,7 @@ $meetById = meetSelectById($meet);
         <?php foreach ($meetById as $info) { ?>
             <p><?= $info->titre ?></p>
         <?php } ?>
+        <a href="inscriptionMeet.php?meet=<?= $meet ?>" class="button">S'inscrire</a>
     </main>
 </body>
 

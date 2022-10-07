@@ -55,7 +55,7 @@ if (!empty($_SESSION["id"])) {
                                     <p>Date : <?= $meet->date ?></p>
                                     <p>Participants max : <?= $meet->partcipantsMax ?></p>
                                 </div>
-                                <a href="#" class="button">Voir</a>
+                                <a href="meetdetails.php?meet=<?= $meet->idEvenement ?>" class="button" style="margin-top: 25px;">Voir</a>
                             </div>
                         </div>
                     </label>

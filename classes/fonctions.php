@@ -170,3 +170,33 @@ function nextFiveCarMeet() {
     // Retourne le tableau avec les données
     return $recordMeet;
 }
+
+function inscriptionMeet($idEvenement, $idUser) {
+        $query = db()->prepare("INSERT INTO inscription(idEvenement, idUser) VALUES (?, ?)");
+        // Execution de la requete
+        $query->execute([$idEvenement, $idUser]);
+}
+
+function getInfosIncription() {
+    // Préparation de la requete
+    $query = db()->prepare("SELECT * FROM inscription");
+    // Execution de la requete
+    $query->execute();
+    // Récuperation des données s'il y en a 
+    $recordMeet = $query->fetchAll(PDO::FETCH_ASSOC);
+    // Retourne le tableau avec les données
+    return $recordMeet;
+}
+
+// $idEvenement $idUser
+function verifInscription() {
+    $tableInscription = getInfosIncription();
+
+    foreach ($tableInscription as $key => $value) {
+        foreach ($value as $key2 => $value2) {
+            
+        }
+    }
+    var_dump($value2);
+    
+}
