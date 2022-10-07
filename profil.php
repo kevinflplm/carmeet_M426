@@ -6,6 +6,10 @@ session_start();
 // Appel de la connexion à la bdd
 require_once "classes/fonctions.php";
 
+$Inscriptions = getInscriprtion($_SESSION['id']);
+
+$nbInscription = count($Inscriptions);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -38,48 +42,26 @@ require_once "classes/fonctions.php";
       <div class="profil-details">
         <div class="profil-list" id="scroll">
           <h2><i class="fa-solid fa-calendar-days"></i> Mes inscription</h2>
-          <ul>
-            <li class="meet-item">
-              <img src="img/profil/avatar.jpg" style="width:85px">
-              <div>
-                <span>Racing Meet</span><br>
-                <span>22.09.2022</span>
-              </div>
-            </li>
-
-            <li class="meet-item">
-              <img src="img/profil/avatar.jpg" style="width:85px">
-              <div>
-                <span>Racing Meet</span><br>
-                <span>22.09.2022</span>
-              </div>
-            </li>
-
-            <li class="meet-item">
-              <img src="img/profil/avatar.jpg" style="width:85px">
-              <div>
-                <span>Racing Meet</span><br>
-                <span>22.09.2022</span>
-              </div>
-            </li>
-            <li class="meet-item">
-              <img src="img/profil/avatar.jpg" style="width:85px">
-              <div>
-                <span>Racing Meet</span><br>
-                <span>22.09.2022</span>
-              </div>
-            </li>
-            <li class="meet-item">
-              <img src="img/profil/avatar.jpg" style="width:85px">
-              <div>
-                <span>Racing Meet</span><br>
-                <span>22.09.2022</span>
-              </div>
-            </li>
-          </ul>
+          <?php
+          foreach ($Inscriptions as $value) {
+          ?>
+            <ul>
+              <li class="meet-item">
+                <img src="img/cover/<?= $value->idCategorie ?>.jpg" style="width:130px">
+                <div>
+                  <span><?= $value->titre ?></span><br>
+                  <span><?= $value->date ?></span>
+                </div>
+              </li>
+            </ul>
+          <?php }  ?>
         </div>
         <div class="profil-info">
-        <a href="#" class="button"><i class="fa-regular fa-pen-to-square"></i> Modifier mon profil</a>
+          <form>
+
+
+          </form>
+          <!-- <a href="#" class="button"><i class="fa-regular fa-pen-to-square"></i> Modifier mon profil</a> -->
         </div>
       </div>
     </div>

@@ -199,4 +199,16 @@ function verifInscription() {
     }
     var_dump($value2);
     
+
+function getInscriprtion($idUser) {
+
+    // Préparation de la requete
+    $query = db()->prepare("SELECT * FROM inscription INNER JOIN meet ON inscription.idEvenement = meet.idEvenement WHERE idUser = ?");
+    // Execution de la requete
+    $query->execute([$idUser]);
+    // Récuperation des données s'il y en a 
+    $recordInscription = $query->fetchAll(PDO::FETCH_OBJ);
+    // Retourne le tableau avec les données
+    
+    return $recordInscription;
 }
