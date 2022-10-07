@@ -8,9 +8,10 @@ $userId = $_SESSION["id"];
 $meetIdString = filter_input(INPUT_GET, "meet", FILTER_SANITIZE_STRING);
 $meetId = intval($meetIdString);
 
-inscriptionMeet($meetId, $userId);
 
-verifInscription();
+if(verifInscription($meetId, $userId)) {
+    inscriptionMeet($meetId, $userId);
+}
 
 // header("location: meetdetails.php");
 
