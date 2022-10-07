@@ -147,3 +147,15 @@ function meetSelectById($idMeet) {
     return $recordMeet;
 
 }
+
+function countCarMeet() {
+    // Préparation de la requete
+    $query = db()->prepare("SELECT idEvenement FROM meet");
+    // Execution de la requete
+    $query->execute();
+    // Récuperation des données s'il y en a 
+    $recordMeet = $query->fetchAll(PDO::FETCH_ASSOC);
+    // Retourne le tableau avec les données
+    $nombremeet = count($recordMeet);
+    return $nombremeet;
+}

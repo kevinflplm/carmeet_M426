@@ -6,6 +6,8 @@ session_start();
 // Appel de la connexion à la bdd
 require_once "classes/fonctions.php";
 
+$nbCarmeet = countCarMeet();
+
 if (!empty($_SESSION["id"])) {
 
 
