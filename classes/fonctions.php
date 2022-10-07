@@ -159,3 +159,14 @@ function countCarMeet() {
     $nombremeet = count($recordMeet);
     return $nombremeet;
 }
+
+function nextFiveCarMeet() {
+    // Préparation de la requete
+    $query = db()->prepare("SELECT * from meet order by `date`  ASC LIMIT 5;");
+    // Execution de la requete
+    $query->execute();
+    // Récuperation des données s'il y en a 
+    $recordMeet = $query->fetchAll(PDO::FETCH_OBJ);
+    // Retourne le tableau avec les données
+    return $recordMeet;
+}

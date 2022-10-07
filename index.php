@@ -6,7 +6,7 @@ session_start();
 // Appel de la connexion à la bdd
 require_once "classes/fonctions.php";
 
-$nbCarmeet = countCarMeet();
+$infosNextFiveMeet = nextFiveCarMeet();
 
 if (!empty($_SESSION["id"])) {
 
@@ -41,26 +41,29 @@ if (!empty($_SESSION["id"])) {
                 <input type="radio" name="slider" id="s3">
                 <input type="radio" name="slider" id="s4">
                 <input type="radio" name="slider" id="s5">
-
-                <label for="s1" id="slide1">
-                    <div class="card-caroussel">
-                        <img src="img/cover/1.jpg" alt="" style="width:100%; height: 200px;">
-                        <div class="container-list">
-                            <h4><b>Oue</b></h4>
-                            <div class="container-info">
-                                <p></p>
-                                <p></p>
-                                <p>0/20</p>
-                                <p></p>
+                <?php
+                $count = 1;
+                foreach ($infosNextFiveMeet as $meet) {
+                ?>
+                    <label for="s<?= $count ?>" id="slide<?= $count ?>">
+                        <div class="card-caroussel">
+                            <img src='img/cover/<?= $meet->idCategorie ?>.jpg' alt='' style='width:100%; height: 200px;'>
+                            <div class="container-list">
+                                <h4 style="font-size: large; margin-bottom: 25px;"><b><?= $meet->titre ?></b></h4>
+                                <div class="container-info">
+                                    <p>Adresse : <?= $meet->adresse ?></p>
+                                    <p>Date : <?= $meet->date ?></p>
+                                    <p>Participants max : <?= $meet->partcipantsMax ?></p>
+                                </div>
+                                <a href="#" class="button">Voir</a>
                             </div>
-                            <button>Voir plus</button>
                         </div>
-                    </div>
-                </label>
-                <label for="s2" id="slide2">Meet 2</label>
-                <label for="s3" id="slide3">Meet 3</label>
-                <label for="s4" id="slide4">Meet 4</label>
-                <label for="s5" id="slide5">Meet 5</label>
+                    </label>
+                    <?php
+                    $count++;
+                    ?>
+                <?php }
+                ?>
             </section>
         </main>
         <?php
