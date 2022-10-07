@@ -183,21 +183,23 @@ function getInfosIncription() {
     // Execution de la requete
     $query->execute();
     // Récuperation des données s'il y en a 
-    $recordMeet = $query->fetchAll(PDO::FETCH_ASSOC);
+    $recordMeet = $query->fetchAll(PDO::FETCH_OBJ);
     // Retourne le tableau avec les données
     return $recordMeet;
 }
 
-// $idEvenement $idUser
-function verifInscription() {
+function verifInscription($idEvenement, $idUser) {
     $tableInscription = getInfosIncription();
 
-    foreach ($tableInscription as $key => $value) {
-        foreach ($value as $key2 => $value2) {
-            
+    foreach ($tableInscription as $value) {
+        if ($idEvenement == $value->idEvenement && $idUser == $value->idUser) {
+            return false;
+        }
+        else {
+            return true;
         }
     }
-    var_dump($value2);
+}
     
 }
 
