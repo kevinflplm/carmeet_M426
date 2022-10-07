@@ -147,3 +147,7 @@ function meetSelectById($idMeet) {
     return $recordMeet;
 
 }
+
+function countInscriptionByUser($idUser) {
+
+}
