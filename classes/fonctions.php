@@ -222,3 +222,21 @@ function removeInscription($idMeet, $idUser) {
 
     return $query;
 }
+
+function updateProfil($pseudo, $email, $idUser) {
+    $message = "";
+    if ($pseudo != "" && $email != "") {
+        $sql = "UPDATE users SET Pseudo = :Pseudo, Email = :Email, date = :date where idUser = :id";
+
+        $query = db()->prepare($sql);
+
+        $query->execute([":idUser" => $idUser, ":Pseudo" => $pseudo, ":Email" => $email]);
+
+        return $message;
+    }
+    else {
+        $message = "Veuillez verifier tous les champs";
+        return $message;
+    }
+
+}

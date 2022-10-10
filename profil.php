@@ -7,10 +7,35 @@ session_start();
 require_once "classes/fonctions.php";
 
 $modify = filter_input(INPUT_GET, 'modify', FILTER_VALIDATE_INT);
+$btnModif = filter_input(INPUT_POST, 'modifProfil', FILTER_SANITIZE_STRING);
+
+if ($btnModif != null) {
+  $pseudoModif = filter_input(INPUT_POST, 'pseudoModif', FILTER_SANITIZE_STRING);
+  $emailModif = filter_input(INPUT_POST, 'emailModif', FILTER_SANITIZE_EMAIL);
+
+  // $target_dir = "../img/profil/";
+
+  // var_dump($_FILES['pdp']['name']);
+
+  // if (!empty($_FILES["pdp"]["name"])) {
+  //   $target_file = $target_dir . basename($_FILES["pdp"]["name"]);
+
+
+  //   if (move_uploaded_file($_FILES["pdp"]["tmp_name"], $target_file)) {
+  //     echo "La cover " . htmlspecialchars(basename($_FILES["pdp"]["name"])) . " a été enregistrer.";
+  //   } else {
+  //     echo "Sorry, there was an error uploading your file.";
+  //   }
+  // }
+
+  header("Location: modele/modifProfil.php?pseudo=" . $pseudoModif . "&email=" . $emailModif);
+}
 
 $Inscriptions = getInscriprtion($_SESSION['id']);
 
 $nbInscription = count($Inscriptions);
+
+$pseudo = strtoupper($_SESSION['pseudo']);
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +63,7 @@ $nbInscription = count($Inscriptions);
           <img src="img/profil/avatar.jpg">
         </div>
         <div class="profil-name">
-          <h2>Admin</h2>
+          <h2><?= $pseudo ?></h2>
         </div>
       </div>
       <div class="profil-details">
@@ -80,25 +105,25 @@ $nbInscription = count($Inscriptions);
               <form method="post">
                 <div class="modify-item">
                   <label>Pseudo :
-                    <input type="text">
+                    <input type="text" value="<?= $_SESSION['pseudo'] ?>" name="pseudoModif">
                   </label>
                 </div><br>
                 <div class="modify-item">
                   <label>Email :
-                    <input type="email">
+                    <input type="email" value="<?= $_SESSION['email'] ?>" name="emailModif">
                   </label>
                 </div><br>
                 <div class="modify-item">
                   <label>
-                    Cover :
-                    <input type="file" name="cover">
+                    Photo de profil :
+                    <input type="file" name="pdp">
                   </label>
                 </div>
+                <div class="btns-modify">
+                  <input type="submit" value="Sauvegarder les modifications" class="btn-sauv" name="modifProfil">
+                  <a href="profil.php?modify=0" class="btn-annuler">Annuler les modifications</a>
+                </div>
               </form>
-            </div>
-            <div class="btns-modify">
-              <a href="profil.php?modify=0" class="btn-sauv">Sauvegarder les modifications</a>
-              <a href="profil.php?modify=0" class="btn-annuler">Annuler les modifications</a>
             </div>
           <?php
           }

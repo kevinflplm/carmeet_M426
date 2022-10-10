@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <?php
-                if ($_SESSION['pseudo'] == "admin") {
+                if ($_SESSION['role'] == "admin") {
                 ?>
                     <li>
                         <a href="adminpage.php">
