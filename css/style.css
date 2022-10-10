@@ -590,6 +590,26 @@ body {
   color: rgba(180, 180, 180, 0.603);
 }
 
+.profil-list .btn-desinscrire {
+  border: #ff0000 solid 1px;
+  border-radius: 15px;
+  color: #ff0000;
+  padding: 13px 28px;
+  margin-left: 250px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  height: 50px;
+  margin-top: 25px;
+}
+
+.profil-list .btn-desinscrire:hover {
+  border: #ff0000 solid 1px;
+  background-color: #ff0000ad;
+  color: #ffffff;
+}
+
 .button {
   background-color: #4CAF50;
   border: none;

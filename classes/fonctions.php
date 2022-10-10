@@ -200,8 +200,6 @@ function verifInscription($idEvenement, $idUser) {
         }
     }
 }
-    
-}
 
 function getInscriprtion($idUser) {
 
@@ -214,4 +212,13 @@ function getInscriprtion($idUser) {
     // Retourne le tableau avec les données
     
     return $recordInscription;
+}
+
+function removeInscription($idMeet, $idUser) {
+
+    $query = db()->prepare("DELETE FROM inscription WHERE idEvenement = ? AND idUser = ?");
+
+    $query->execute([$idMeet, $idUser]);
+
+    return $query;
 }
