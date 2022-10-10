@@ -542,12 +542,19 @@ body {
 
 .profil-info {
   display: flex;
+  flex-direction: column; 
   align-items: center;
-  justify-content: center;
-  height: 282px;
+  justify-content: space-around;
+  height: 350px;
   width: 714px;
   margin-left: 20px;
   margin-top: 3vh;
+}
+
+.modify-item label input {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .profil-list {
@@ -610,7 +617,42 @@ body {
   color: #ffffff;
 }
 
-.button {
+.btn-sauv {
+  border: #0d9700 solid 1px;
+  border-radius: 15px;
+  color: #0d9700;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-sauv:hover {
+  border: #0d9700 solid 1px;
+  background-color: #0d9700;
+  color: #ffffff;
+}
+
+.btn-annuler {
+  border: #ff0000 solid 1px;
+  border-radius: 15px;
+  color: #ff0000;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-annuler:hover {
+  border: #ff0000 solid 1px;
+  background-color: #ff0000ad;
+  color: #ffffff;
+}
+
+.btn-modify {
+  margin-top: 1vh;
   background-color: #4CAF50;
   border: none;
   border-radius: 15px;

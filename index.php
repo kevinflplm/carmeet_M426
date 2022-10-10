@@ -21,13 +21,13 @@ if (!empty($_SESSION["id"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projet</title>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/test .css">
+        <link rel="stylesheet" href="css/carousel.css">
     </head>
 
     <body>
         <?php
 
-        include("plug/header.php");
+        include("modele/header.php");
 
         ?>
         <div class="banner">
@@ -67,7 +67,7 @@ if (!empty($_SESSION["id"])) {
             </section>
         </main>
         <?php
-        include("plug/footer.html");
+        include("modele/footer.html");
         ?>
         <script src="js/script.js"></script>
         <script src="https://kit.fontawesome.com/4b95889e0a.js" crossorigin="anonymous"></script>

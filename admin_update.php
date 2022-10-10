@@ -46,7 +46,7 @@ if ($buttonModifier == "Modifier") {
 <body>
     <?php
 
-    include("plug/header.php");
+    include("modele/header.php");
 
     ?>
     <main class="add-main">
@@ -102,7 +102,7 @@ if ($buttonModifier == "Modifier") {
         </div>
     </main>
     <?php
-    include("plug/footer.html");
+    include("modele/footer.html");
     ?>
 </body>
 

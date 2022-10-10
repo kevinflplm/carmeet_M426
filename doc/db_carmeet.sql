@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 07 oct. 2022 à 06:43
+-- Généré le : lun. 10 oct. 2022 à 08:23
 -- Version du serveur : 10.6.7-MariaDB
 -- Version de PHP : 7.4.26
 
@@ -61,6 +61,14 @@ CREATE TABLE IF NOT EXISTS `inscription` (
   KEY `idUser` (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `inscription`
+--
+
+INSERT INTO `inscription` (`idEvenement`, `idUser`) VALUES
+(2, 3),
+(3, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -89,8 +97,7 @@ INSERT INTO `meet` (`idEvenement`, `titre`, `partcipantsMax`, `idCategorie`, `ad
 (4, 'Off Road ++ ', 30, 5, 'Ch. du sahara 38', '2023-02-10'),
 (5, 'My Japonese Girl', 28, 4, 'Ch. veloktur 90', '2022-12-21'),
 (6, 'My muscles', 18, 3, 'Ch. Deparici 38', '2022-10-27'),
-(13, '90s meet', 20, 6, 'Ch. Deparici 38', '2022-10-27'),
-(14, '90s meet', 20, 6, 'Ch. Deparici 38', '2022-10-27');
+(13, '90s meet', 20, 6, 'Ch. Deparici 38', '2022-10-27');
 
 -- --------------------------------------------------------
 

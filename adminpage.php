@@ -22,7 +22,7 @@ $allMeets = meetSelectAllAdmin();
 <body>
     <?php
 
-    include("plug/header.php");
+    include("modele/header.php");
 
     ?>
     <main class="admin-main">
@@ -58,7 +58,7 @@ $allMeets = meetSelectAllAdmin();
         </div>
     </main>
     <?php
-    include("plug/footer.html");
+    include("modele/footer.html");
     ?>
 </body>
 

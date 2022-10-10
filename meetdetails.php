@@ -28,7 +28,7 @@ $meetById = meetSelectById($meet);
 
 <body>
     <?php
-    include("plug/header.php");
+    include("modele/header.php");
     ?>
     <main class="meet-main">
         <?php foreach ($meetById as $info) { ?>

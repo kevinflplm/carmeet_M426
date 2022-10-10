@@ -6,6 +6,8 @@ session_start();
 // Appel de la connexion à la bdd
 require_once "classes/fonctions.php";
 
+$modify = filter_input(INPUT_GET, 'modify', FILTER_VALIDATE_INT);
+
 $Inscriptions = getInscriprtion($_SESSION['id']);
 
 $nbInscription = count($Inscriptions);
@@ -25,7 +27,7 @@ $nbInscription = count($Inscriptions);
 <body>
   <?php
 
-  include("plug/header.php");
+  include("modele/header.php");
 
   ?>
 
@@ -59,16 +61,48 @@ $nbInscription = count($Inscriptions);
             </ul>
           <?php } else { ?>
             <div class="not-meet">
-                <h2>Vous n'êtes inscrits à aucun événement</h2>
+              <h2>Vous n'êtes inscrits à aucun événement</h2>
             </div>
           <?php } ?>
         </div>
         <div class="profil-info">
-          <form>
-            <input type="text" value="Admin" readonly>
-            <input type="email" value="admin@gmail.com" readonly>
-          </form>
-          <!-- <a href="#" class="button"><i class="fa-regular fa-pen-to-square"></i> Modifier mon profil</a> -->
+          <?php
+          if ($modify == 0 || $modify == null) {
+          ?>
+            <a href="profil.php?modify=1" class="btn-modify"><i class="fa-regular fa-pen-to-square"></i> Modifier mon profil</a>
+          <?php
+          } else {
+          ?>
+            <div class="modify-title">
+              <h2>Mode Modification</h2>
+            </div>
+            <div class="modify-content">
+              <form method="post">
+                <div class="modify-item">
+                  <label>Pseudo :
+                    <input type="text">
+                  </label>
+                </div><br>
+                <div class="modify-item">
+                  <label>Email :
+                    <input type="email">
+                  </label>
+                </div><br>
+                <div class="modify-item">
+                  <label>
+                    Cover :
+                    <input type="file" name="cover">
+                  </label>
+                </div>
+              </form>
+            </div>
+            <div class="btns-modify">
+              <a href="profil.php?modify=0" class="btn-sauv">Sauvegarder les modifications</a>
+              <a href="profil.php?modify=0" class="btn-annuler">Annuler les modifications</a>
+            </div>
+          <?php
+          }
+          ?>
         </div>
       </div>
     </div>

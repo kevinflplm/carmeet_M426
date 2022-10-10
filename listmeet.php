@@ -31,7 +31,7 @@ $allMeets = meetSelectByCategorie($filter);
 
 <body>
     <?php
-    include("plug/header.php");
+    include("modele/header.php");
     ?>
     <main class="main-list">
         <div class="list-head">
@@ -67,7 +67,7 @@ $allMeets = meetSelectByCategorie($filter);
         </div>
     </main>
     <?php
-    include("plug/footer.html");
+    include("modele/footer.html");
     ?>
 </body>
 

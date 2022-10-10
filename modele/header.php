@@ -1,5 +1,3 @@
-<?php
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -39,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="profil.php">
+                    <a href="profil.php?modify=0">
                         <i class="fa-solid fa-user"></i>
                         <span class="links_name">Profil</span>
                     </a>

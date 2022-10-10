@@ -43,7 +43,7 @@ if (isset($btnAdd)) {
 <body>
     <?php
 
-    include("plug/header.php");
+    include("modele/header.php");
 
     ?>
     <main class="add-main">
@@ -99,7 +99,7 @@ if (isset($btnAdd)) {
         </div>
     </main>
     <?php
-    include("plug/footer.html");
+    include("modele/footer.html");
     ?>
 </body>
 
