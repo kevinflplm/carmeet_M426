@@ -224,19 +224,20 @@ function removeInscription($idMeet, $idUser) {
 }
 
 function updateProfil($pseudo, $email, $idUser) {
-    $message = "";
-    if ($pseudo != "" && $email != "") {
-        $sql = "UPDATE users SET Pseudo = :Pseudo, Email = :Email, date = :date where idUser = :id";
+    
+    $query = db()->prepare("UPDATE users SET Pseudo = ?, Email = ? WHERE idUser = ?");
 
-        $query = db()->prepare($sql);
+    $query->execute([$pseudo, $email, $idUser]);
 
-        $query->execute([":idUser" => $idUser, ":Pseudo" => $pseudo, ":Email" => $email]);
+}
 
-        return $message;
-    }
-    else {
-        $message = "Veuillez verifier tous les champs";
-        return $message;
-    }
+function getInfoUser($idUser) {
 
+    $query = db()->prepare("SELECT * FrOM users WHERE idUser = ?");
+
+    $query->execute([$idUser]);
+
+    $recordUser = $query->fetchAll(PDO::FETCH_OBJ);
+    // Retourne le tableau avec les données
+    return $recordUser;
 }

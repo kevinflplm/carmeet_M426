@@ -68,7 +68,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
       </div>
       <div class="profil-details">
         <div class="profil-list" id="scroll">
-          <h2><i class="fa-solid fa-calendar-days"></i> Mes inscription</h2>
+          <h2><i class="fa-solid fa-calendar-days"></i> Mes inscriptions</h2>
           <?php if ($nbInscription > 0) { ?>
             <ul>
               <?php
