@@ -18,7 +18,6 @@ $date = filter_input(INPUT_POST, "date", FILTER_SANITIZE_STRING);
 $buttonModifier = filter_input(INPUT_POST, "btnModify", FILTER_DEFAULT);
 
 if ($buttonModifier == "Modifier") {
-    modifierMeetById($idMeet, $titre, $participantsMax, $idCategorie, $adresse, $date);
     $message = modifierMeetById($idMeet, $titre, $participantsMax, $idCategorie, $adresse, $date);
     if ($message == "") {
         header("Location: adminpage.php");
@@ -95,9 +94,15 @@ if ($buttonModifier == "Modifier") {
                 </div>
                 <?php
                 if ($message != "") {
-                    echo $message;
+                    $output .= "<div class=\"alert-admin\">";
+                    $output .= "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>";
+                    $output .= "<strong>Erreur !</strong> " . $message;
+                    $output .= "</div>";
+
+                    echo $output;
                 }
                 ?>
+                <a href="adminpage.php"><i class="fa-solid fa-angles-left"></i> Revenire à la page admin</a>
             </form>
         </div>
     </main>

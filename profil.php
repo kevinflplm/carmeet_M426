@@ -28,7 +28,26 @@ if ($btnModif != null) {
   //   }
   // }
 
-  header("Location: modele/modifProfil.php?pseudo=" . $pseudoModif . "&email=" . $emailModif);
+  if (isset($_FILES['avatar']) and !empty($_FILES['avatar']['name'])) {
+    $tailleMax = 2097152;
+    $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+    if ($_FILES['avatar']['size'] <= $tailleMax) {
+      $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
+      if (in_array($extensionUpload, $extensionsValides)) {
+        $chemin = "img/avatars/" . $_SESSION['id'] . "." . $extensionUpload;
+        $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
+        if ($resultat) {
+          header("Location: modele/modifProfil.php?pseudo=" . $pseudoModif . "&email=" . $emailModif. "&pdp=" . $_SESSION['id'] . "." . $extensionUpload);
+        } else {
+          $msg = "Erreur durant l'importation de votre photo de profil";
+        }
+      } else {
+        $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
+      }
+    } else {
+      $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
+    }
+  }
 }
 
 $Inscriptions = getInscriprtion($_SESSION['id']);
@@ -102,7 +121,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
               <h2>Mode Modification</h2>
             </div>
             <div class="modify-content">
-              <form method="post">
+              <form method="post" enctype="multipart/form-data">
                 <div class="modify-item">
                   <label>Pseudo :
                     <input type="text" value="<?= $_SESSION['pseudo'] ?>" name="pseudoModif">
@@ -116,7 +135,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
                 <div class="modify-item">
                   <label>
                     Photo de profil :
-                    <input type="file" name="pdp">
+                    <input type="file" name="avatar">
                   </label>
                 </div>
                 <div class="btns-modify">

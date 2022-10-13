@@ -35,6 +35,7 @@ if (!empty($_SESSION["id"])) {
             <img src="img/swiss.png" width="70px" height="70px">
         </div>
         <main>
+            <h1 class="title">📅 • Prochains événements • 🔥</h1>
             <section id="slider">
                 <input type="radio" name="slider" id="s1" checked>
                 <input type="radio" name="slider" id="s2">
@@ -47,15 +48,18 @@ if (!empty($_SESSION["id"])) {
                 ?>
                     <label for="s<?= $count ?>" id="slide<?= $count ?>">
                         <div class="card-caroussel">
-                            <img src='img/cover/<?= $meet->idCategorie ?>.jpg' alt='' style='width:100%; height: 200px;'>
+                            <img src='img/cover/<?= $meet->idCategorie ?>.jpg' alt='' style='width:100%; height: 269px;'>
                             <div class="container-list">
                                 <h4 style="font-size: large; margin-bottom: 25px;"><b><?= $meet->titre ?></b></h4>
                                 <div class="container-info">
                                     <p>Adresse : <?= $meet->adresse ?></p>
-                                    <p>Date : <?= $meet->date ?></p>
+                                    <?php 
+                                    $newDate = date("d M Y", strtotime($meet->date));
+                                    ?>
+                                    <p>Date : <?= $newDate ?></p>
                                     <p>Participants max : <?= $meet->partcipantsMax ?></p>
                                 </div>
-                                <a href="meetdetails.php?meet=<?= $meet->idEvenement ?>" class="button" style="margin-top: 25px;">Voir</a>
+                                <a href="meetdetails.php?meet=<?= $meet->idEvenement ?>" class="btn-carousel" style="margin-top: 25px;">Voir Plus</a>
                             </div>
                         </div>
                     </label>

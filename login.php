@@ -28,6 +28,7 @@ if (isset($_POST['formConnect'])) {
             $_SESSION['id'] = $pass->idUser;
             $_SESSION['pseudo'] = $pass->Pseudo;
             $_SESSION['email'] = $pass->Email;
+            $_SESSION['pdp'] = $pass->photoProfil;
             $_SESSION['role'] = $pass->role;
              
             header("Location:index.php");

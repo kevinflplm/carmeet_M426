@@ -223,11 +223,11 @@ function removeInscription($idMeet, $idUser) {
     return $query;
 }
 
-function updateProfil($pseudo, $email, $idUser) {
+function updateProfil($pseudo, $email, $idUser, $pdp) {
     
-    $query = db()->prepare("UPDATE users SET Pseudo = ?, Email = ? WHERE idUser = ?");
+    $query = db()->prepare("UPDATE users SET Pseudo = ?, Email = ?, photoProfil = ? WHERE idUser = ?");
 
-    $query->execute([$pseudo, $email, $idUser]);
+    $query->execute([$pseudo, $email, $pdp, $idUser]);
 
 }
 

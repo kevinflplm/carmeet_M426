@@ -214,6 +214,13 @@ body {
   margin-left: 10px;
 }
 
+main .title {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
 /*CSS DES LOGIN*/
 /*DEBUT*/
 .main-login {
