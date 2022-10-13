@@ -238,6 +238,6 @@ function getInfoUser($idUser) {
     $query->execute([$idUser]);
 
     $recordUser = $query->fetchAll(PDO::FETCH_OBJ);
-    // Retourne le tableau avec les données
+
     return $recordUser;
 }

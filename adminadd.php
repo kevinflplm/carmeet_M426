@@ -6,6 +6,7 @@ session_start();
 require_once "classes/fonctions.php";
 
 $message = "";
+$output = "";
 
 $nomMeet = filter_input(INPUT_POST, 'nomMeet', FILTER_SANITIZE_STRING);
 $categorie = filter_input(INPUT_POST, 'categorie', FILTER_VALIDATE_INT);
@@ -15,7 +16,6 @@ $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
 $btnAdd = filter_input(INPUT_POST, 'btnAdd', FILTER_SANITIZE_STRING);
 
 if (isset($btnAdd)) {
-    addMeet($nomMeet, $nbPartMax, $categorie, $adresse, $date);
     $message = addMeet($nomMeet, $nbPartMax, $categorie, $adresse, $date);
     if ($message == "") {
         header("Location: adminpage.php");
@@ -47,6 +47,7 @@ if (isset($btnAdd)) {
 
     ?>
     <main class="add-main">
+        
         <div class="add-form">
             <form method="post" enctype="multipart/form-data">
                 <h1>Ajouter un meet</h1>
@@ -92,9 +93,16 @@ if (isset($btnAdd)) {
                 </div>
                 <?php
                 if ($message != "") {
-                    echo $message;
+
+                    $output .= "<div class=\"alert-admin\">";
+                    $output .= "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>";
+                    $output .= "<strong>Erreur !</strong> " . $message;
+                    $output .= "</div>";
+
+                    echo $output;
                 }
                 ?>
+                <a href="adminpage.php"><i class="fa-solid fa-angles-left"></i> Revenire à la page admin</a>
             </form>
         </div>
     </main>
