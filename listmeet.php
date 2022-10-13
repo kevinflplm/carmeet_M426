@@ -4,7 +4,7 @@
 session_start();
 
 // Appel de la connexion à la bdd
-require_once "classes/fonctions.php";
+require_once "modele/fonctions.php";
 
 $filter = filter_input(INPUT_POST, 'filter', FILTER_VALIDATE_INT);
 
@@ -31,7 +31,7 @@ $allMeets = meetSelectByCategorie($filter);
 
 <body>
     <?php
-    include("modele/header.php");
+    include("vue/header.php");
     ?>
     <main class="main-list">
         <div class="list-head">
@@ -67,7 +67,7 @@ $allMeets = meetSelectByCategorie($filter);
         </div>
     </main>
     <?php
-    include("modele/footer.html");
+    include("vue/footer.html");
     ?>
 </body>
 

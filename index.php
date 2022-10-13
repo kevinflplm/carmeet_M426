@@ -4,7 +4,7 @@
 session_start();
 
 // Appel de la connexion à la bdd
-require_once "classes/fonctions.php";
+require_once "modele/fonctions.php";
 
 $infosNextFiveMeet = nextFiveCarMeet();
 
@@ -27,7 +27,7 @@ if (!empty($_SESSION["id"])) {
     <body>
         <?php
 
-        include("modele/header.php");
+        include("vue/header.php");
 
         ?>
         <div class="banner">
@@ -71,7 +71,7 @@ if (!empty($_SESSION["id"])) {
             </section>
         </main>
         <?php
-        include("modele/footer.html");
+        include("vue/footer.html");
         ?>
         <script src="js/script.js"></script>
         <script src="https://kit.fontawesome.com/4b95889e0a.js" crossorigin="anonymous"></script>

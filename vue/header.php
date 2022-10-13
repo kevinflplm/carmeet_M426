@@ -20,10 +20,10 @@
             </div>
 
             <ul class="nav_list">
-                <li>
+                <!-- <li>
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="search...">
-                </li>
+                </li> -->
                 <li>
                     <a href="index.php">
                         <i class="fa-solid fa-house"></i>

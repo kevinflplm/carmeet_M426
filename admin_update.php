@@ -2,7 +2,7 @@
 session_start();
 
 // Appel de la connexion à la bdd
-require_once "classes/fonctions.php";
+require_once "modele/fonctions.php";
 
 $idMeet = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 $meet = getTableById($idMeet);
@@ -45,7 +45,7 @@ if ($buttonModifier == "Modifier") {
 <body>
     <?php
 
-    include("modele/header.php");
+    include("vue/header.php");
 
     ?>
     <main class="add-main">
@@ -107,7 +107,7 @@ if ($buttonModifier == "Modifier") {
         </div>
     </main>
     <?php
-    include("modele/footer.html");
+    include("vue/footer.html");
     ?>
 </body>
 

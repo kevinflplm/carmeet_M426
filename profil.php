@@ -4,51 +4,10 @@
 session_start();
 
 // Appel de la connexion à la bdd
-require_once "classes/fonctions.php";
+require_once "modele/fonctions.php";
 
 $modify = filter_input(INPUT_GET, 'modify', FILTER_VALIDATE_INT);
 $btnModif = filter_input(INPUT_POST, 'modifProfil', FILTER_SANITIZE_STRING);
-
-if ($btnModif != null) {
-  $pseudoModif = filter_input(INPUT_POST, 'pseudoModif', FILTER_SANITIZE_STRING);
-  $emailModif = filter_input(INPUT_POST, 'emailModif', FILTER_SANITIZE_EMAIL);
-
-  // $target_dir = "../img/profil/";
-
-  // var_dump($_FILES['pdp']['name']);
-
-  // if (!empty($_FILES["pdp"]["name"])) {
-  //   $target_file = $target_dir . basename($_FILES["pdp"]["name"]);
-
-
-  //   if (move_uploaded_file($_FILES["pdp"]["tmp_name"], $target_file)) {
-  //     echo "La cover " . htmlspecialchars(basename($_FILES["pdp"]["name"])) . " a été enregistrer.";
-  //   } else {
-  //     echo "Sorry, there was an error uploading your file.";
-  //   }
-  // }
-
-  if (isset($_FILES['avatar']) and !empty($_FILES['avatar']['name'])) {
-    $tailleMax = 2097152;
-    $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
-    if ($_FILES['avatar']['size'] <= $tailleMax) {
-      $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
-      if (in_array($extensionUpload, $extensionsValides)) {
-        $chemin = "img/avatars/" . $_SESSION['id'] . "." . $extensionUpload;
-        $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
-        if ($resultat) {
-          header("Location: modele/modifProfil.php?pseudo=" . $pseudoModif . "&email=" . $emailModif. "&pdp=" . $_SESSION['id'] . "." . $extensionUpload);
-        } else {
-          $msg = "Erreur durant l'importation de votre photo de profil";
-        }
-      } else {
-        $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
-      }
-    } else {
-      $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
-    }
-  }
-}
 
 $Inscriptions = getInscriprtion($_SESSION['id']);
 
@@ -65,13 +24,13 @@ $pseudo = strtoupper($_SESSION['pseudo']);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page profil</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
   <?php
 
-  include("modele/header.php");
+  include("vue/header.php");
 
   ?>
 
@@ -79,7 +38,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
     <div class="profil-content">
       <div class="profil-img">
         <div class="avatar">
-          <img src="img/profil/avatar.jpg">
+          <img src="../img/avatars/<?= $_SESSION['pdp']?>">
         </div>
         <div class="profil-name">
           <h2><?= $pseudo ?></h2>
@@ -94,7 +53,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
               foreach ($Inscriptions as $value) {
               ?>
                 <li class="meet-item">
-                  <img src="img/cover/<?= $value->idCategorie ?>.jpg" style="width:130px; height: 80px;">
+                  <img src="../img/cover/<?= $value->idCategorie ?>.jpg" style="width:130px; height: 80px;">
                   <div>
                     <span><?= $value->titre ?></span><br>
                     <span><?= $value->date ?></span>
@@ -121,7 +80,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
               <h2>Mode Modification</h2>
             </div>
             <div class="modify-content">
-              <form method="post" enctype="multipart/form-data">
+              <form method="post" enctype="multipart/form-data" action="../controler/modifProfil.php">
                 <div class="modify-item">
                   <label>Pseudo :
                     <input type="text" value="<?= $_SESSION['pseudo'] ?>" name="pseudoModif">

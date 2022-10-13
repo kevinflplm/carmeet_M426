@@ -3,7 +3,7 @@
 session_start();
 
 // Appel de la connexion à la bdd
-require_once "classes/fonctions.php";
+require_once "modele/fonctions.php";
 
 $message = "";
 $output = "";
@@ -43,7 +43,7 @@ if (isset($btnAdd)) {
 <body>
     <?php
 
-    include("modele/header.php");
+    include("vue/header.php");
 
     ?>
     <main class="add-main">
@@ -107,7 +107,7 @@ if (isset($btnAdd)) {
         </div>
     </main>
     <?php
-    include("modele/footer.html");
+    include("vue/footer.html");
     ?>
 </body>
 

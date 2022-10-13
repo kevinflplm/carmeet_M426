@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once("classes/fonctions.php");
+require_once "modele/fonctions.php";
 
 $meet = filter_input(INPUT_GET, 'meet', FILTER_VALIDATE_INT);
 // $sinscrire = filter_input(INPUT_POST, 'sinscrire', FILTER_SANITIZE_STRING);
@@ -28,7 +28,7 @@ $meetById = meetSelectById($meet);
 
 <body>
     <?php
-    include("modele/header.php");
+    include("vue/header.php");
     ?>
     <main class="meet-main">
         <?php foreach ($meetById as $info) { ?>

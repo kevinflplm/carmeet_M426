@@ -3,7 +3,7 @@
 session_start();
 
 // Appel de la connexion à la bdd
-require_once "classes/fonctions.php";
+require_once "modele/fonctions.php";
 
 $allMeets = meetSelectAllAdmin();
 
@@ -22,7 +22,7 @@ $allMeets = meetSelectAllAdmin();
 <body>
     <?php
 
-    include("modele/header.php");
+    include("vue/header.php");
 
     ?>
     <main class="admin-main">
@@ -58,7 +58,7 @@ $allMeets = meetSelectAllAdmin();
         </div>
     </main>
     <?php
-    include("modele/footer.html");
+    include("vue/footer.html");
     ?>
 </body>
 
