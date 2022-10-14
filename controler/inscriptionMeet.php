@@ -13,5 +13,5 @@ if(verifInscription($meetId, $userId)) {
     inscriptionMeet($meetId, $userId);
 }
 
-// header("location: meetdetails.php");
+header("location: ../meetdetails.php?meet=" .  $meetId );
 

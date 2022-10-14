@@ -241,3 +241,13 @@ function getInfoUser($idUser) {
 
     return $recordUser;
 }
+
+function verifDejaInscrit($idMeet, $idUser) {
+    $query = db()->prepare("SELECT * FROM inscription WHERE idEvenement = ? AND idUser = ?");
+
+    $query->execute([$idMeet, $idUser]);
+
+    $recordUser = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $recordUser;
+}

@@ -5,11 +5,9 @@ session_start();
 require_once "modele/fonctions.php";
 
 $meet = filter_input(INPUT_GET, 'meet', FILTER_VALIDATE_INT);
-// $sinscrire = filter_input(INPUT_POST, 'sinscrire', FILTER_SANITIZE_STRING);
+$userId = $_SESSION["id"];
 
-// if (!empty($sinscrire)) {
-//     echo "1esdhfuhesofiheishfeisofh";
-// }
+$verifInscription = verifDejaInscrit($meet, $userId);
 
 $meetById = meetSelectById($meet);
 
@@ -38,10 +36,19 @@ $meetById = meetSelectById($meet);
     <main class="meet-main">
         <?php foreach ($meetById as $info) { ?>
             <p><?= $info->titre ?></p>
+            <h3>Adresse :</h3>
+            <p><?= $info->adresse ?></p>
+            <h3>Date :</h3>
+            <p><?= $info->date ?></p>
         <?php } ?>
-
         <br>
-        <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
+        <?php
+        if (count($verifInscription) == 0) { ?>
+            <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
+        <?php } else { ?>
+            <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" style="pointer-events: none" class="btn-sauv">Déjà inscrit</a>
+        <?php }
+        ?>
     </main>
 </body>
 
