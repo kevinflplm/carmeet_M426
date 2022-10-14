@@ -24,6 +24,11 @@ $meetById = meetSelectById($meet);
     <title>Info</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/test .css">
+    <style>
+        .meet-main {
+            margin-left: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,7 +39,7 @@ $meetById = meetSelectById($meet);
         <?php foreach ($meetById as $info) { ?>
             <p><?= $info->titre ?></p>
         <?php } ?>
-        <a href="inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
+        <a href="controler/inscriptionMeet.php" class="btn-sauv">S'inscrire</a>
     </main>
 </body>
 
