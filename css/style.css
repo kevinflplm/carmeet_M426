@@ -494,8 +494,67 @@ main .title {
 /* DEBUT CSS PAGE DETAIL*/
 
 .meet-main {
-  color: #ffffff;
-  margin-left: 100px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.meet-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.meet-cover, .meet-info, .inscription-list {
+  background: #ffffff;
+  border-radius: 15px;
+}
+
+.meet-cover {
+  height: 382px;
+  width: 500px;
+  margin-top: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meet-cover .cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px; 
+  background-size: cover;
+}
+
+.meet-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.meet-title h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.meet-info {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  height: 350px;
+  width: 714px;
+  margin-left: 20px;
+  margin-top: 7vh;
+}
+
+.inscription-list {
+  height: 450px;
+  width: 714px;
+  margin-left: 20px;
+  margin-top: 3vh;
+  overflow-y: scroll;
 }
 
 /*FIN PAGE DETAIL CSS*/

@@ -24,7 +24,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page profil</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -39,8 +39,6 @@ $pseudo = strtoupper($_SESSION['pseudo']);
       <div class="profil-img">
         <div class="avatar">
           <img src="img/avatars/<?= $_SESSION['pdp']?>">
-          <?php 
-          ?>
         </div>
         <div class="profil-name">
           <h2><?= $pseudo ?></h2>
@@ -55,7 +53,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
               foreach ($Inscriptions as $value) {
               ?>
                 <li class="meet-item">
-                  <img src="img/cover/<?= $value->idCategorie ?>.jpg" style="width:130px; height: 80px;">
+                  <img src="../img/cover/<?= $value->idCategorie ?>.jpg" style="width:130px; height: 80px;">
                   <div>
                     <span><?= $value->titre ?></span><br>
                     <span><?= $value->date ?></span>
