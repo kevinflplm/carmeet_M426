@@ -11,6 +11,8 @@ $verifInscription = verifDejaInscrit($meet, $userId);
 
 $meetById = meetSelectById($meet);
 
+$allInscription = getAllInscription($meet);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,7 +39,7 @@ $meetById = meetSelectById($meet);
         <?php foreach ($meetById as $info) { ?>
             <div class="meet-content">
                 <div class="meet-cover">
-                    <div class="cover" style="background-image: url(img/cover/<?= $info->idCategorie?>);">
+                    <div class="cover" style="background-image: url(img/cover/<?= $info->idCategorie ?>);">
                     </div>
                     <div class="meet-title">
                         <h2><?= $info->titre ?></h2>
@@ -45,24 +47,31 @@ $meetById = meetSelectById($meet);
                 </div>
                 <div class="meet-details">
                     <div class="meet-info">
-                        
+
                     </div>
-                    <div class="inscription-list" id="scroll">
-                        <h2><i class="fa-solid fa-calendar-days"></i> Participants à cette événement</h2>
-                        <ul>
-                            <li class="meet-item">
-                                <img src="img/cover/.jpg" style="width:130px; height: 80px;">
-                                <div>
-                                    <span></span><br>
-                                    <span></span>
+                    <?php
+                    if ($_SESSION['role'] == "admin") {
+
+                        foreach ($allInscription as $value) {
+                    ?>
+                            <div class="inscription-list" id="scroll">
+                                <h2><i class="fa-solid fa-calendar-days"></i> Participants à cette événement</h2>
+                                <ul>
+                                    <li class="meet-item">
+                                        <img src="img/avatars/<?= $value->photoProfil ?>" style="width:130px; height: 80px;">
+                                        <div>
+                                            <span><?= $value->pseudo ?></span><br>
+                                            <span></span>
+                                        </div>
+                                        <a href="controler/desinscription.php?id=" class="btn-desinscrire">Se désinscrire</a>
+                                    </li>
+                                </ul>
+                                <div class="not-meet">
+                                    <h2>Aucune personne inscrite à cette événement</h2>
                                 </div>
-                                <a href="controler/desinscription.php?id=" class="btn-desinscrire">Se désinscrire</a>
-                            </li>
-                        </ul>
-                        <div class="not-meet">
-                            <h2>Aucune personne inscrite à cette événement</h2>
-                        </div>
-                    </div>
+                            </div>
+                    <?php  }
+                    } ?>
                 </div>
             </div>
 

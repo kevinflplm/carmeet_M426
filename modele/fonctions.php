@@ -251,3 +251,14 @@ function verifDejaInscrit($idMeet, $idUser) {
 
     return $recordUser;
 }
+
+function getAllInscription($idMeet) {
+
+    $query = db()->prepare("SELECT * FROM inscription INNER JOIN users ON inscription.idUser = users.idUser WHERE idEvenement = ? ");
+
+    $query->execute([$idMeet]);
+
+    $recordInscription = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $recordInscription;
+}
