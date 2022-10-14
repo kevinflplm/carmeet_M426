@@ -80,7 +80,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
               <h2>Mode Modification</h2>
             </div>
             <div class="modify-content">
-              <form method="post" enctype="multipart/form-data" action="../controler/modifProfil.php">
+              <form method="post" enctype="multipart/form-data" action="controler/modifProfil.php">
                 <div class="modify-item">
                   <label>Pseudo :
                     <input type="text" value="<?= $_SESSION['pseudo'] ?>" name="pseudoModif">
