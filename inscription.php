@@ -12,7 +12,7 @@ if (isset($_POST['formInscritpion'])) {
     $email = htmlspecialchars($_POST['email']);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-    $defaultPdp = "img/profil/avatar.jpg";
+    $defaultPdp = "avatar.jpg";
     $role = "user";
 
 
