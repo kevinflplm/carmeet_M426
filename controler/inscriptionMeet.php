@@ -1,6 +1,6 @@
 <?php
 
-require_once "modele/fonctions.php";
+require_once "../modele/fonctions.php";
 
 session_start();
 
