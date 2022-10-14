@@ -56,7 +56,7 @@
                 ?>
             </ul>
             <div class="log-out">
-                <a href="./destroy.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                <a href="../controler/destroy.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
         </div>
     </nav>
