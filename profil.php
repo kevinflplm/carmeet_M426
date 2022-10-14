@@ -58,7 +58,7 @@ $pseudo = strtoupper($_SESSION['pseudo']);
                     <span><?= $value->titre ?></span><br>
                     <span><?= $value->date ?></span>
                   </div>
-                  <a href="desinscription.php?id=<?= $value->idEvenement ?>" class="btn-desinscrire">Se désinscrire</a>
+                  <a href="controler/desinscription.php?id=<?= $value->idEvenement ?>" class="btn-desinscrire">Se désinscrire</a>
                 </li>
               <?php }  ?>
             </ul>

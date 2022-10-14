@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once "modele/fonctions.php";
+require_once "../modele/fonctions.php";
 
 
 $pseudoModif = filter_input(INPUT_POST, 'pseudoModif', FILTER_SANITIZE_STRING);
