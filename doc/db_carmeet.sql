@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 10 oct. 2022 à 08:23
+-- Généré le : ven. 14 oct. 2022 à 06:31
 -- Version du serveur : 10.6.7-MariaDB
 -- Version de PHP : 7.4.26
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `meet` (
   `date` date NOT NULL,
   PRIMARY KEY (`idEvenement`),
   KEY `idCategorie` (`idCategorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `meet`
@@ -96,8 +96,8 @@ INSERT INTO `meet` (`idEvenement`, `titre`, `partcipantsMax`, `idCategorie`, `ad
 (3, 'Super Car', 10, 2, 'chemin de la richesse 12', '2022-11-19'),
 (4, 'Off Road ++ ', 30, 5, 'Ch. du sahara 38', '2023-02-10'),
 (5, 'My Japonese Girl', 28, 4, 'Ch. veloktur 90', '2022-12-21'),
-(6, 'My muscles', 18, 3, 'Ch. Deparici 38', '2022-10-27'),
-(13, '90s meet', 20, 6, 'Ch. Deparici 38', '2022-10-27');
+(13, '90s meet', 20, 6, 'Ch. Deparici 38', '2022-10-27'),
+(15, 'My muscles', 10, 3, 'Ch. Deparici 38', '2023-02-02');
 
 -- --------------------------------------------------------
 
@@ -112,6 +112,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `photoProfil` varchar(255) NOT NULL,
+  `role` varchar(20) NOT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
@@ -119,10 +120,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`idUser`, `Pseudo`, `Email`, `Password`, `photoProfil`) VALUES
-(3, 'admin', 'kevin.flplm@eduge.ch', '$2y$10$rxJVHjj2nu6NU43QboxFkehl0s7jvA39VUw.KZsPCIzQpQUhaxTJS', 'img/profil/avatar.jpg'),
-(4, 'jay', 'jay@gmail.com', '$2y$10$GXoHrbqMwFlVEDRCAiNjfe5YMZrqQKCnILoGNX1UISTlBUACIlNY6', 'img/profil/avatar.jpg'),
-(5, 'Many', 'many@gmail.com', '$2y$10$n.ViAxS8yH.RiNwEOnLsT.nfDL8fyrajUMvMtxmrQdZv/kphbt2Xm', 'img/profil/avatar.jpg');
+INSERT INTO `users` (`idUser`, `Pseudo`, `Email`, `Password`, `photoProfil`, `role`) VALUES
+(3, 'Kevinho', 'kevin.flplm@eduge.ch', '$2y$10$rxJVHjj2nu6NU43QboxFkehl0s7jvA39VUw.KZsPCIzQpQUhaxTJS', '3.png', 'admin'),
+(4, 'jay', 'jay@gmail.com', '$2y$10$GXoHrbqMwFlVEDRCAiNjfe5YMZrqQKCnILoGNX1UISTlBUACIlNY6', 'img/profil/avatar.jpg', 'user'),
+(5, 'Many', 'many@gmail.com', '$2y$10$n.ViAxS8yH.RiNwEOnLsT.nfDL8fyrajUMvMtxmrQdZv/kphbt2Xm', 'img/profil/avatar.jpg', 'user');
 
 --
 -- Contraintes pour les tables déchargées
