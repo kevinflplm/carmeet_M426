@@ -39,7 +39,12 @@ $meetById = meetSelectById($meet);
         <?php foreach ($meetById as $info) { ?>
             <p><?= $info->titre ?></p>
         <?php } ?>
+<<<<<<< Updated upstream
         <a href="controler/inscriptionMeet.php" class="btn-sauv">S'inscrire</a>
+=======
+        <br>
+        <a href="inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
+>>>>>>> Stashed changes
     </main>
 </body>
 
