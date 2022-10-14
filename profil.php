@@ -39,6 +39,10 @@ $pseudo = strtoupper($_SESSION['pseudo']);
       <div class="profil-img">
         <div class="avatar">
           <img src="img/avatars/<?= $_SESSION['pdp']?>">
+          <img src="img/avatars/<?= $_SESSION['pdp']?>">
+          <?php 
+          echo $_SESSION['pdp']; 
+          ?>
         </div>
         <div class="profil-name">
           <h2><?= $pseudo ?></h2>
