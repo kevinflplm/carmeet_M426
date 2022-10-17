@@ -13,6 +13,8 @@ $meetById = meetSelectById($meet);
 
 $allInscription = getAllInscription($meet);
 
+$nbInscrits = count($allInscription);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,6 +46,14 @@ $allInscription = getAllInscription($meet);
                     <div class="meet-title">
                         <h2><?= $info->titre ?></h2>
                     </div>
+                    <?php
+                    if (count($verifInscription) == 0) { ?>
+                        <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
+                    <?php } else { ?>
+                        <p class="btn-block">Déjà inscrit</p>
+                        <!-- <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-block">Déjà inscrit</a> -->
+                    <?php }
+                    ?>
                 </div>
                 <div class="meet-details">
                     <div class="meet-info">
@@ -51,29 +61,38 @@ $allInscription = getAllInscription($meet);
                     </div>
                     <div class="inscription-list" id="scroll">
                         <h2><i class="fa-solid fa-calendar-days"></i> Participants à cette événement</h2>
-                        <ul>
-                            <?php
-                            if ($_SESSION['role'] == "admin") {
+                        <?php
+                        if ($nbInscrits > 0) {
+                        ?>
+                            <ul>
+                                <?php
+                                if ($_SESSION['role'] == "admin") {
 
-                                foreach ($allInscription as $value) {
-                            ?>
+                                    foreach ($allInscription as $value) {
+                                ?>
 
-                                    <li class="meet-item">
-                                        <img src="img/avatars/<?= $value->photoProfil ?>" style="width:130px; height: 80px;">
-                                        <div>
-                                            <span><?= $value->Pseudo ?></span><br>
-                                            <span></span>
-                                        </div>
-                                        <a href="controler/desinscription.php?id=" class="btn-desinscrire">Se désinscrire</a>
-                                    </li>
+                                        <li class="meet-item">
+                                            <img src="img/avatars/<?= $value->photoProfil ?>" style="width:130px; height: 80px;">
+                                            <div>
+                                                <span><?= $value->Pseudo ?></span><br>
+                                                <span></span>
+                                            </div>
+                                            <a href="controler/desinscription.php?id=" class="btn-desinscrire">Retirer le participant</a>
+                                        </li>
 
-                            <?php  }
-                            } ?>
-                        </ul>
-                        <!-- <div class="not-meet">
-                                    <h2>Aucune personne inscrite à cette événement</h2>
-                                </div> -->
+                                <?php  }
+                                } ?>
+                            </ul>
+                        <?php
+                        } else {
+                        ?>
+                            <div class="not-inscrit">
+                                <h2>Aucune personne inscrite à cette événement</h2>
+                            </div>
                     </div>
+                <?php
+                        }
+                ?>
                 </div>
             </div>
 
@@ -83,14 +102,6 @@ $allInscription = getAllInscription($meet);
             <h3>Date :</h3>
             <p><?= $info->date ?></p>
         <?php } ?>
-        <br>
-        <?php
-        if (count($verifInscription) == 0) { ?>
-            <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
-        <?php } else { ?>
-            <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" style="pointer-events: none" class="btn-sauv">Déjà inscrit</a>
-        <?php }
-        ?>
     </main>
 </body>
 

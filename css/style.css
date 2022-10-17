@@ -511,7 +511,7 @@ main .title {
 }
 
 .meet-cover {
-  height: 382px;
+  height: 400px;
   width: 500px;
   margin-top: 7vh;
   display: flex;
@@ -539,6 +539,24 @@ main .title {
   margin-bottom: 10px;
 }
 
+.meet-cover p, .meet-cover a {
+  margin: 5px;
+  width: 80%;
+  font-size: 16px;
+}
+
+.btn-block {
+  border: #b9b9b98a solid 1px;
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 12px;
+  cursor: not-allowed;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #b9b9b98c;
+}
+
 .meet-info {
   display: flex;
   flex-direction: column; 
@@ -555,6 +573,20 @@ main .title {
   margin-left: 20px;
   margin-top: 3vh;
   overflow-y: scroll;
+}
+
+.inscription-list h2 {
+  margin: 10px; 
+}
+
+.not-inscrit {
+  display: flex;
+  justify-content: center;
+  margin-top: 22%;
+}
+
+.not-inscrit h2 {
+  color: rgba(180, 180, 180, 0.603);
 }
 
 /*FIN PAGE DETAIL CSS*/
@@ -673,7 +705,7 @@ main .title {
   color: rgba(180, 180, 180, 0.603);
 }
 
-.profil-list .btn-desinscrire {
+.btn-desinscrire {
   border: #ff0000 solid 1px;
   border-radius: 15px;
   color: #ff0000;
@@ -687,7 +719,7 @@ main .title {
   margin-top: 25px;
 }
 
-.profil-list .btn-desinscrire:hover {
+.btn-desinscrire:hover {
   border: #ff0000 solid 1px;
   background-color: #ff0000ad;
   color: #ffffff;
