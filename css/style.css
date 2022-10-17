@@ -560,11 +560,18 @@ main .title {
 .meet-info {
   display: flex;
   flex-direction: column; 
+  justify-content: center;
   align-items: center;
   height: 350px;
   width: 714px;
   margin-left: 20px;
   margin-top: 7vh;
+}
+
+.meet-info table td {
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #ccc;
+  text-align: center;
 }
 
 .inscription-list {
@@ -575,8 +582,24 @@ main .title {
   overflow-y: scroll;
 }
 
+.meet-info h2 {
+  margin-bottom: 10px;
+}
+
 .inscription-list h2 {
   margin: 10px; 
+}
+
+.img-participant {
+  border-radius: 200px;
+  width: 90px; 
+  height: 80px;
+  border: 5px solid #ccc;
+}
+
+.inscription-list h3 {
+  margin-top: 12px;
+  margin-left: 30px;
 }
 
 .not-inscrit {
@@ -710,7 +733,7 @@ main .title {
   border-radius: 15px;
   color: #ff0000;
   padding: 13px 28px;
-  margin-left: 250px;
+  margin-left: 35%;
   text-align: center;
   text-decoration: none;
   font-size: 14px;

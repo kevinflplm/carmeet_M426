@@ -26,11 +26,6 @@ $nbInscrits = count($allInscription);
     <title>Info</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/carousel.css">
-    <style>
-        .meet-main {
-            margin-left: 200px;
-        }
-    </style>
 </head>
 
 <body>
@@ -47,41 +42,72 @@ $nbInscrits = count($allInscription);
                         <h2><?= $info->titre ?></h2>
                     </div>
                     <?php
-                    if (count($verifInscription) == 0) { ?>
-                        <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
-                    <?php } else { ?>
-                        <p class="btn-block">Déjà inscrit</p>
-                        <!-- <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-block">Déjà inscrit</a> -->
-                    <?php }
+                    if ($nbInscrits < $info->partcipantsMax) {
+                        if (count($verifInscription) == 0) { ?>
+                            <a href="controler/inscriptionMeet.php?meet=<?= $meet ?>" class="btn-sauv">S'inscrire</a>
+                        <?php } else { ?>
+                            <p class="btn-block">Déjà inscrit</p>
+                        <?php }
+                    } else {
+                        ?>
+                        <p class="btn-block">Evènement complet !</p>
+                    <?php
+                    }
                     ?>
                 </div>
                 <div class="meet-details">
                     <div class="meet-info">
-
+                        <h2><i class="fa-solid fa-circle-info"></i> Informations</h2>
+                        <table>
+                            <tr>
+                                <td>Catégorie</td>
+                                <td>:</td>
+                                <td><?= $info->label ?></td>
+                            </tr>
+                            <tr>
+                                <?php
+                                $newDate = date("d M Y", strtotime($info->date));
+                                ?>
+                                <td>Date</td>
+                                <td>:</td>
+                                <td><?= $newDate ?></td>
+                            </tr>
+                            <tr>
+                                <td>Adresse</td>
+                                <td>:</td>
+                                <td><?= $info->adresse ?></td>
+                            </tr>
+                            <tr>
+                                <td>Participants</td>
+                                <td>:</td>
+                                <td><?= $nbInscrits ?> / <?= $info->partcipantsMax ?></td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="inscription-list" id="scroll">
-                        <h2><i class="fa-solid fa-calendar-days"></i> Participants à cette événement</h2>
+                        <h2><i class="fa-solid fa-user-group"></i> Participants à cette événement</h2>
                         <?php
                         if ($nbInscrits > 0) {
                         ?>
                             <ul>
                                 <?php
-                                if ($_SESSION['role'] == "admin") {
 
-                                    foreach ($allInscription as $value) {
+
+                                foreach ($allInscription as $value) {
                                 ?>
-
-                                        <li class="meet-item">
-                                            <img src="img/avatars/<?= $value->photoProfil ?>" style="width:130px; height: 80px;">
-                                            <div>
-                                                <span><?= $value->Pseudo ?></span><br>
-                                                <span></span>
-                                            </div>
-                                            <a href="controler/desinscription.php?id=" class="btn-desinscrire">Retirer le participant</a>
-                                        </li>
-
+                                    <li class="meet-item">
+                                        <img src="img/avatars/<?= $value->photoProfil ?>" class="img-participant">
+                                        <div>
+                                            <h3><?= $value->Pseudo ?></h3>
+                                        </div>
+                                        <?php
+                                        if ($_SESSION['role'] == "admin") {
+                                        ?>
+                                            <a href="controler/desinscriptionAdmin.php?id=<?= $meet ?>&idUser=<?= $value->idUser ?>" class="btn-desinscrire">Retirer le participant</a>
+                                        <?php } ?>
+                                    </li>
                                 <?php  }
-                                } ?>
+                                ?>
                             </ul>
                         <?php
                         } else {
@@ -95,12 +121,6 @@ $nbInscrits = count($allInscription);
                 ?>
                 </div>
             </div>
-
-            <p><?= $info->titre ?></p>
-            <h3>Adresse :</h3>
-            <p><?= $info->adresse ?></p>
-            <h3>Date :</h3>
-            <p><?= $info->date ?></p>
         <?php } ?>
     </main>
 </body>

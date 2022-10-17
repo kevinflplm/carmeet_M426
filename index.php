@@ -45,6 +45,10 @@ if (!empty($_SESSION["id"])) {
                 <?php
                 $count = 1;
                 foreach ($infosNextFiveMeet as $meet) {
+
+                    $allInscription = getAllInscription($meet->idEvenement);
+                    $nbInscrits = count($allInscription);
+
                 ?>
                     <label for="s<?= $count ?>" id="slide<?= $count ?>">
                         <div class="card-caroussel">
@@ -53,11 +57,11 @@ if (!empty($_SESSION["id"])) {
                                 <h4 style="font-size: large; margin-bottom: 25px;"><b><?= $meet->titre ?></b></h4>
                                 <div class="container-info">
                                     <p>Adresse : <?= $meet->adresse ?></p>
-                                    <?php 
+                                    <?php
                                     $newDate = date("d M Y", strtotime($meet->date));
                                     ?>
                                     <p>Date : <?= $newDate ?></p>
-                                    <p>Participants max : <?= $meet->partcipantsMax ?></p>
+                                    <p>Participants : <?= $nbInscrits ?> / <?= $meet->partcipantsMax ?></p>
                                 </div>
                                 <a href="meetdetails.php?meet=<?= $meet->idEvenement ?>" class="btn-carousel" style="margin-top: 25px;">Voir Plus</a>
                             </div>

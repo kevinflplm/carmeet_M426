@@ -49,7 +49,10 @@ $allMeets = meetSelectByCategorie($filter);
             </form>
         </div>
         <div class="list-meet">
-            <?php foreach ($allMeets as $meet) { ?>
+            <?php foreach ($allMeets as $meet) {
+                $allInscription = getAllInscription($meet->idEvenement);
+                $nbInscrits = count($allInscription);
+            ?>
                 <div class="card">
                     <img src="img/cover/<?= $meet->idCategorie ?>.jpg" alt="" style="width:100%; height: 200px;">
                     <div class="container-list">
@@ -57,7 +60,7 @@ $allMeets = meetSelectByCategorie($filter);
                         <div class="container-info">
                             <p><?= $meet->label ?></p>
                             <p><?= $meet->date ?></p>
-                            <p>0/<?= $meet->partcipantsMax ?></p>
+                            <p><?= $nbInscrits?> / <?= $meet->partcipantsMax ?></p>
                             <p><?= $meet->adresse ?></p>
                         </div>
                         <button><a href="meetdetails.php?meet=<?= $meet->idEvenement ?>">Voir plus</a></button>
