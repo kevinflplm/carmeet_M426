@@ -35,7 +35,7 @@ if (!empty($_SESSION["id"])) {
             <img src="img/swiss.png" width="70px" height="70px">
         </div>
         <main>
-            <h1 class="title">📅 • Prochains événements • 🔥</h1>
+            <h1 class="title">📅 • 𝑷𝒓𝒐𝒄𝒉𝒂𝒊𝒏𝒔 𝒆́𝒗𝒆̀𝒏𝒆𝒎𝒆𝒏𝒕𝒔 • 🔥</h1>
             <section id="slider">
                 <input type="radio" name="slider" id="s1" checked>
                 <input type="radio" name="slider" id="s2">

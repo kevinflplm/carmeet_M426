@@ -73,7 +73,7 @@ if (isset($btnAdd)) {
                 <div class="form-addItem">
                     <label>
                         Participants Max :
-                        <input type="number" name="nbParticipants" class="add-item">
+                        <input type="number" name="nbParticipants" class="add-item" min=0 max=20>
                     </label>
                 </div><br>
                 <div class="form-addItem">

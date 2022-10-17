@@ -61,7 +61,7 @@ if ($buttonModifier == "Modifier") {
                 <div class="form-addItem">
                     <label>
                         Participants Max :
-                        <input type="number" name="participantsMax" class="add-item" value="<?= $meet->partcipantsMax ?>">
+                        <input type="number" name="participantsMax" class="add-item" value="<?= $meet->partcipantsMax ?>" min=0 max=20>
                     </label>
                 </div><br>
                 <div class="form-addItem">

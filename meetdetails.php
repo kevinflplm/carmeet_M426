@@ -49,29 +49,31 @@ $allInscription = getAllInscription($meet);
                     <div class="meet-info">
 
                     </div>
-                    <?php
-                    if ($_SESSION['role'] == "admin") {
+                    <div class="inscription-list" id="scroll">
+                        <h2><i class="fa-solid fa-calendar-days"></i> Participants à cette événement</h2>
+                        <ul>
+                            <?php
+                            if ($_SESSION['role'] == "admin") {
 
-                        foreach ($allInscription as $value) {
-                    ?>
-                            <div class="inscription-list" id="scroll">
-                                <h2><i class="fa-solid fa-calendar-days"></i> Participants à cette événement</h2>
-                                <ul>
+                                foreach ($allInscription as $value) {
+                            ?>
+
                                     <li class="meet-item">
                                         <img src="img/avatars/<?= $value->photoProfil ?>" style="width:130px; height: 80px;">
                                         <div>
-                                            <span><?= $value->pseudo ?></span><br>
+                                            <span><?= $value->Pseudo ?></span><br>
                                             <span></span>
                                         </div>
                                         <a href="controler/desinscription.php?id=" class="btn-desinscrire">Se désinscrire</a>
                                     </li>
-                                </ul>
-                                <div class="not-meet">
+
+                            <?php  }
+                            } ?>
+                        </ul>
+                        <!-- <div class="not-meet">
                                     <h2>Aucune personne inscrite à cette événement</h2>
-                                </div>
-                            </div>
-                    <?php  }
-                    } ?>
+                                </div> -->
+                    </div>
                 </div>
             </div>
 
