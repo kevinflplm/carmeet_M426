@@ -58,7 +58,7 @@ function meetSelectAllAdmin()
 }
 
 /**
- * Function qui ajoute un film
+ * Function qui ajoute un meet
  * @param Titre, Nombres de Participants maximum, Categorie, Adresse, Date
  * @return Un messages null, Un message d'erreur
  */
@@ -78,6 +78,11 @@ function addMeet($titre, $nbPartMax, $categorie, $adresse, $date)
     }
 }
 
+/**
+ * Function qui supprime un meet
+ * @param L'id d'un meeting
+ * @return Query delete
+ */
 function removeMeet($idMeet)
 {
     $query = db()->prepare("DELETE FROM meet WHERE idEvenement = ?;");
@@ -87,6 +92,11 @@ function removeMeet($idMeet)
     return $query;
 }
 
+/**
+ * Function qui récupère les meets via leur ID
+ * @param L'id d'un meeting
+ * @return recrods de la base de données
+ */
 function getTableById($idMeet)
 {
 
@@ -102,6 +112,11 @@ function getTableById($idMeet)
     return $record;
 }
 
+/**
+ * Function qui modifie un meet
+ * @param Titre, Nombres de Participants maximum, Categorie, Adresse, Date
+ * @return Un messages null, Un message d'erreur
+ */
 function modifierMeetById($id, $titre, $nbParticipantsMax, $idCategorie, $adresse, $date)
 {
     $message = "";
@@ -120,7 +135,11 @@ function modifierMeetById($id, $titre, $nbParticipantsMax, $idCategorie, $adress
     }
 }
 
-// Fonction qui récupère les catégorie
+/**
+ * Function qui récupère les catégorie
+ * @param 
+ * @return Toutes les catégories
+ */
 function getCategorie() {
 
     $queryGenre = db()->prepare("SELECT * FROM categorie");
@@ -133,6 +152,11 @@ function getCategorie() {
     return $record;
 }
 
+/**
+ * Function qui récupère un meet selon son ID
+ * @param l'id du meet
+ * @return Les infos du meet
+ */
 function meetSelectById($idMeet) {
 
     // Préparation de la requete
@@ -148,6 +172,11 @@ function meetSelectById($idMeet) {
 
 }
 
+/**
+ * Function qui compte le nombre d'évènements
+ * @param
+ * @return Le nombre de meet
+ */
 function countCarMeet() {
     // Préparation de la requete
     $query = db()->prepare("SELECT idEvenement FROM meet");
@@ -160,6 +189,11 @@ function countCarMeet() {
     return $nombremeet;
 }
 
+/**
+ * Function qui récupère les prochains évènements
+ * @param 
+ * @return Les prochains meetings
+ */
 function nextFiveCarMeet() {
     // Préparation de la requete
     $query = db()->prepare("SELECT * from meet order by `date`  ASC LIMIT 5;");
@@ -171,12 +205,22 @@ function nextFiveCarMeet() {
     return $recordMeet;
 }
 
+/**
+ * Function qui inscrit une personne
+ * @param l'id du meet, l'id de l'utilisateur
+ * @return
+ */
 function inscriptionMeet($idEvenement, $idUser) {
         $query = db()->prepare("INSERT INTO inscription(idEvenement, idUser) VALUES (?, ?)");
         // Execution de la requete
         $query->execute([$idEvenement, $idUser]);
 }
 
+/**
+ * Function qui récupère les inscriptipons
+ * @param 
+ * @return L'utilisateur inscrit
+ */
 function getInfosIncription() {
     // Préparation de la requete
     $query = db()->prepare("SELECT * FROM inscription");
@@ -223,6 +267,11 @@ function removeInscription($idMeet, $idUser) {
     return $query;
 }
 
+/**
+ * Function qui modifie un profil
+ * @param Un pseudo, un email, une photo de profil, l'id de l'utilisateur
+ * @return L'utilisateur inscrit
+ */
 function updateProfil($pseudo, $email, $idUser, $pdp) {
     
     $query = db()->prepare("UPDATE users SET Pseudo = ?, Email = ?, photoProfil = ? WHERE idUser = ?");
@@ -231,6 +280,11 @@ function updateProfil($pseudo, $email, $idUser, $pdp) {
 
 }
 
+/**
+ * Function qui récupère les info d'un utilisateur
+ * @param l'id de l'utilisateur
+ * @return Les infos de l'utilisateur
+ */
 function getInfoUser($idUser) {
 
     $query = db()->prepare("SELECT * FrOM users WHERE idUser = ?");
@@ -242,6 +296,11 @@ function getInfoUser($idUser) {
     return $recordUser;
 }
 
+/**
+ * Function qui vérifie si l'utilisateur est inscrits ou pas
+ * @param l'id du meet, l'id de l'utilisateur
+ * @return L'utilisateur inscrit
+ */
 function verifDejaInscrit($idMeet, $idUser) {
     $query = db()->prepare("SELECT * FROM inscription WHERE idEvenement = ? AND idUser = ?");
 
@@ -252,6 +311,11 @@ function verifDejaInscrit($idMeet, $idUser) {
     return $recordUser;
 }
 
+/**
+ * Function qui récupère toutes les inscriptions
+ * @param l'id du meet
+ * @return Toutes les inscriptions
+ */
 function getAllInscription($idMeet) {
 
     $query = db()->prepare("SELECT * FROM inscription INNER JOIN users ON inscription.idUser = users.idUser WHERE idEvenement = ? ");
