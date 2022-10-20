@@ -3,5 +3,5 @@
 #### Description du projet :
 
 
-Project carmeet by Kevin.FLPLM
+Project carmeet by Kevin.FLPLM & Diego.dssn
 
